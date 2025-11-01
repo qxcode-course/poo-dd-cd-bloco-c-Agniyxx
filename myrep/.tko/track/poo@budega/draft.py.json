@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-01_18-37-08",
+            "content": "@@ -1,70 +0,0 @@\n-class Cliente:%0A    def __init__(self, nome: str):%0A        self.__nome \n",
+            "lines": "0"
+        },
+        {
+            "label": "2025-11-01_19-07-54",
+            "content": "class Cliente:\n    def __init__(self, nome: str):\n        self.__nome ",
+            "lines": "3"
+        }
+    ]
+}

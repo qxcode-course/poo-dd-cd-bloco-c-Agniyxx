@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+  #!/usr/bin/env bash
 
 # Instala pacotes Node.js globais
 npm install -g typescript esbuild

@@ -1,0 +1,9 @@
+2025-11-01 14:30:18, MOVE, v:1, k:poo@budega, mode:DOWN
+2025-11-01 14:30:20, MOVE, v:1, k:poo@lapiseira, mode:DOWN
+2025-11-01 14:30:22, MOVE, v:1, k:poo@pula-pula, mode:DOWN
+2025-11-01 14:30:23, MOVE, v:1, k:poo@cinema, mode:DOWN
+2025-11-01 14:30:26, MOVE, v:1, k:poo@array, mode:DOWN
+2025-11-01 18:37:07, MOVE, v:1, k:poo@budega, mode:PICK
+2025-11-01 18:37:08, EXEC, v:1, k:poo@budega, mode:FULL, rate:0, size:0
+2025-11-01 19:07:54, EXEC, v:1, k:poo@budega, mode:FULL, rate:0, size:3
+2025-11-01 19:08:02, MOVE, v:1, k:poo@budega, mode:BACK
