@@ -7,8 +7,68 @@
         },
         {
             "label": "2025-11-01_19-07-54",
-            "content": "class Cliente:\n    def __init__(self, nome: str):\n        self.__nome ",
+            "content": "@@ -3,14 +3,15 @@\n ass \n-Person\n+Cliente\n :%0A  \n@@ -32,17 +32,17 @@\n (self, n\n-a\n+o\n me: str)\n@@ -63,241 +63,8 @@\n .__n\n-ame = name%0A%0A    def get_name(self):%0A        return self.__name%0A%0A    def __str__(self):%0A        return f%22%7Bself.__name%7D%22%0A%0Aclass Market:%0A    def __init__(self, counters: , waiting: str):%0A        self.counters = %5B%5D%0A        self.waiting = %22%22\n+ome\n  \n",
             "lines": "3"
+        },
+        {
+            "label": "2025-11-02_19-38-49",
+            "content": "@@ -229,12 +229,8 @@\n rs: \n-list\n , wa\n@@ -299,79 +299,4 @@\n  %22%22 \n-%0A    %0A    def def __str__(self):%0A        return f%22 Caixas: %5B%7Bself.__name%7D%5D%22\n",
+            "lines": "14"
+        },
+        {
+            "label": "2025-11-02_19-44-04",
+            "content": "@@ -305,32 +305,36 @@\n %22 %0A    %0A    def \n+def \n __str__(self):%0A \n",
+            "lines": "17"
+        },
+        {
+            "label": "2025-11-02_19-44-25",
+            "content": "@@ -373,16 +373,5 @@\n me%7D%5D\n-%5CEspera: %5B%5D\n %22\n",
+            "lines": "17"
+        },
+        {
+            "label": "2025-11-02_19-46-47",
+            "content": "@@ -356,16 +356,27 @@\n ixas: %5B%7B\n+self.__name\n %7D%5D%5CEsper\n@@ -383,8 +383,6 @@\n a: %5B\n-%7B%7D\n %5D%22\n",
+            "lines": "17"
+        },
+        {
+            "label": "2025-11-02_19-47-56",
+            "content": "@@ -360,273 +360,20 @@\n : %5B%7B\n-self.counters%7D%5D%5CEspera: %5B%7Bself.waiting%7D%5D%22%0A    %0A%0Adef main():%0A    mercado = Market()%0A    while True:%0A        line = input()%0A        print(%22$%7Bline%7D%22)%0A        args = %0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22init%22:%0A            print(%22%22)%0Amain()\n+%7D%5D%5CEspera: %5B%7B%7D%5D%22\n",
+            "lines": "17"
+        },
+        {
+            "label": "2025-11-02_19-57-14",
+            "content": "@@ -594,12 +594,12 @@\n == %22\n-show\n+init\n %22:%0A \n@@ -619,72 +619,11 @@\n int(\n-mercado)%0A        if args%5B0%5D == %22init%22:%0A            %0A            \n+%22%22)\n %0Amai\n",
+            "lines": "31"
+        },
+        {
+            "label": "2025-11-02_20-09-51",
+            "content": "@@ -522,18 +522,8 @@\n s = \n-line.split\n %0A%0A  \n@@ -654,16 +654,28 @@\n %22init%22:%0A\n+            \n %0A       \n",
+            "lines": "34"
+        },
+        {
+            "label": "2025-11-02_20-10-16",
+            "content": "@@ -275,14 +275,9 @@\n  = %5B\n-None%5D \n+%5D\n %0A   \n@@ -296,23 +296,19 @@\n iting = \n-waiting\n+%22%22 \n %0A    %0A  \n@@ -528,18 +528,16 @@\n ne.split\n-()\n %0A%0A      \n@@ -668,116 +668,8 @@\n t%22:%0A\n-            counters = args%5B1%5D%0A            waiting = args%5B2%5D%0A            mercado = Market(counters, waiting)\n %0A   \n",
+            "lines": "34"
+        },
+        {
+            "label": "2025-11-02_20-22-32",
+            "content": "@@ -450,13 +450,8 @@\n ket(\n-0, %22%22\n )%0A  \n",
+            "lines": "36"
+        },
+        {
+            "label": "2025-11-02_20-26-05",
+            "content": "@@ -506,17 +506,16 @@\n   print(\n-f\n %22$%7Bline%7D\n",
+            "lines": "36"
+        },
+        {
+            "label": "2025-11-02_20-28-06",
+            "content": "@@ -354,16 +354,17 @@\n eturn f%22\n+ \n Caixas: \n",
+            "lines": "36"
+        },
+        {
+            "label": "2025-11-02_20-28-52",
+            "content": "class Person:\n    def __init__(self, name: str):\n        self.__name = name\n\n    def get_name(self):\n        return self.__name\n\n    def __str__(self):\n        return f\"{self.__name}\"\n\nclass Market:\n    def __init__(self, counters: list, waiting: str):\n        self.counters = [None] \n        self.waiting = waiting\n    \n    def __str__(self):\n        return f\"Caixas: [{self.counters}]\\Espera: [{self.waiting}]\"\n    \n\ndef main():\n    mercado = Market(0, \"\")\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(mercado)\n        if args[0] == \"init\":\n            counters = args[1]\n            waiting = args[2]\n            mercado = Market(counters, waiting)\n            \nmain()",
+            "lines": "36"
         }
     ]
 }
