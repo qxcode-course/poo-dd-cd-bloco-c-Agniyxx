@@ -67,8 +67,38 @@
         },
         {
             "label": "2025-11-02_20-28-52",
-            "content": "class Person:\n    def __init__(self, name: str):\n        self.__name = name\n\n    def get_name(self):\n        return self.__name\n\n    def __str__(self):\n        return f\"{self.__name}\"\n\nclass Market:\n    def __init__(self, counters: list, waiting: str):\n        self.counters = [None] \n        self.waiting = waiting\n    \n    def __str__(self):\n        return f\"Caixas: [{self.counters}]\\Espera: [{self.waiting}]\"\n    \n\ndef main():\n    mercado = Market(0, \"\")\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(mercado)\n        if args[0] == \"init\":\n            counters = args[1]\n            waiting = args[2]\n            mercado = Market(counters, waiting)\n            \nmain()",
+            "content": "@@ -209,24 +209,54 @@\n _init__(self\n+, counters: list, waiting: str\n ):%0A        s\n@@ -271,27 +271,16 @@\n ters\n-: Person %7C None\n  = %5B\n+None\n %5D %0A \n@@ -302,21 +302,18 @@\n ting\n-: Person = %5B%5D\n+ = waiting\n %0A   \n@@ -812,60 +812,4 @@\n in()\n-%0A%0A#.append() cria  a lista %0A#join contrariio do split %0A#\n",
             "lines": "36"
+        },
+        {
+            "label": "2025-11-03_16-11-27",
+            "content": "@@ -217,30 +217,11 @@\n self\n-, num_counters: int\n ):%0A\n+\n     \n@@ -263,31 +263,8 @@\n %5B%5D %0A\n-        for _ in range%0A\n     \n@@ -325,47 +325,8 @@\n f):%0A\n-        for _ in range(num_counters):%0A%0A\n     \n@@ -394,46 +394,13 @@\n %7D%5D%22%0A\n+\n     %0A\n-    def arrive(person: Person):%0A%0A\n %0Adef\n",
+            "lines": "40"
+        },
+        {
+            "label": "2025-11-03_16-35-42",
+            "content": "@@ -304,56 +304,8 @@\n ange\n-(num_counters):%0A            self.counters = None\n %0A   \n@@ -355,32 +355,71 @@\n  __str__(self):%0A\n+        for _ in range(num_counters):%0A%0A\n         return f\n",
+            "lines": "45"
+        },
+        {
+            "label": "2025-11-03_16-38-20",
+            "content": "@@ -485,16 +485,47 @@\n %5D%22%0A    %0A\n+    def arrive(person: Person):\n %0A%0A%0Adef m\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-11-03_16-38-31",
+            "content": "@@ -521,16 +521,21 @@\n  Market(\n+0, %22%22\n )%0A    wh\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-11-03_16-38-47",
+            "content": "@@ -489,126 +489,9 @@\n    %0A\n-    def arrive(slef, person: Person):%0A%0A%0A    def call(self, index: int):%0A%0A    def finish(index:int): Person %7C None%0A    \n+%0A\n %0A%0Ade\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-11-03_16-45-15",
+            "content": "class Person:\n    def __init__(self, name: str):\n        self.__name = name\n\n    def get_name(self):\n        return self.__name\n\n    def __str__(self):\n        return f\"{self.__name}\"\n\nclass Market:\n    def __init__(self, num_counters: int):\n        self.counters: Person | None = [] \n        for _ in range(num_counters):\n            self.counters = None\n        self.waiting: Person = []\n    \n    def __str__(self):\n        return f\"Caixas: [{self.counters}]\\Espera: [{self.waiting}]\"\n    \n    def arrive(slef, person: Person):\n\n\n    def call(self, index: int):\n\n    def finish(index:int): Person | None\n    \n\ndef main():\n    mercado = Market()\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(mercado)\n        if args[0] == \"init\":\n            counters = args[1]\n            waiting = args[2]\n            mercado = Market(counters, waiting)\n            \nmain()\n\n#.append() cria  a lista \n#join contrariio do split \n#",
+            "lines": "49"
         }
     ]
 }
