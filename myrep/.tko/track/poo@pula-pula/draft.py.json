@@ -1,0 +1,84 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-05_09-53-18",
+            "content": "@@ -344,80 +344,4 @@\n     \n-self.playing: Kid %7C None = %5B%5D%0A        self.waiting: Kid %7C None = %5B%5D%0A        \n",
+            "lines": "19"
+        },
+        {
+            "label": "2025-11-05_09-56-23",
+            "content": "@@ -143,35 +143,8 @@\n lf):\n-%0A        return self.__nome\n %0A%0A  \n@@ -153,18 +153,20 @@\n def get_\n-ag\n+idad\n e(self):\n@@ -170,100 +170,33 @@\n f):%0A\n-        return self.__idade%0A    %0A    def set_name(self):%0A        return self.get_name()%0A    \n+%0A    def set_name(self):%0A\n %0A   \n@@ -208,10 +208,12 @@\n set_\n-ag\n+idad\n e(se\n@@ -221,44 +221,8 @@\n f):%0A\n-        return self.get_idade()%0A    \n %0A   \n@@ -412,247 +412,12 @@\n  %5B%5D%0A\n-%0A%0A%0Adef main():%0A    pula_pula = Trampoline()%0A    while True:%0A        line = input()%0A        print(f%22$%7Bline%7D%22)%0A        args = line.split()%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22show%22:%0A            print(pula_pula)\n+        \n",
+            "lines": "21"
+        },
+        {
+            "label": "2025-11-05_10-04-32",
+            "content": "@@ -539,85 +539,8 @@\n %5B%5D%0A%0A\n-    def __str__(self):%0A        return f%22%5B%7Bself.playing%7D%5D =%3E %5B%7Bself.waiting%7D%5D%22\n %0A%0Ade\n",
+            "lines": "38"
+        },
+        {
+            "label": "2025-11-05_10-06-31",
+            "content": "@@ -508,100 +508,37 @@\n     \n-    for _ in range()%0A        self.waiting: Kid %7C None = %5B%5D%0A%0A    def arrive(self, kid: Kid):%0A\n+self.waiting: Kid %7C None = %5B%5D\n %0A%0A  \n@@ -858,75 +858,4 @@\n ula)\n-%0A        if args%5B0%5D == %22arrive%22:%0A            pula_pula.arrive()%0A%0Amain()\n",
+            "lines": "39"
+        },
+        {
+            "label": "2025-11-05_10-14-21",
+            "content": "@@ -496,16 +496,45 @@\n ne = %5B%5D%0A\n+            for _ in range()%0A\n         \n",
+            "lines": "47"
+        },
+        {
+            "label": "2025-11-05_10-14-51",
+            "content": "@@ -571,49 +571,8 @@\n d):%0A\n-        self.playing.append(self.waiting)\n %0A%0A  \n",
+            "lines": "46"
+        },
+        {
+            "label": "2025-11-05_10-15-48",
+            "content": "@@ -613,100 +613,8 @@\n ng)%0A\n-        self.playing.append(self.waiting)%0A        self.playing.append(self.waiting)%0A        \n %0A   \n",
+            "lines": "46"
+        },
+        {
+            "label": "2025-11-05_10-16-28",
+            "content": "@@ -609,16 +609,108 @@\n aiting)%0A\n+        self.playing.append(self.waiting)%0A        self.playing.append(self.waiting)%0A        \n %0A    def\n@@ -820,20 +820,16 @@\n mpoline(\n-None\n )%0A    wh\n",
+            "lines": "48"
+        },
+        {
+            "label": "2025-11-05_10-18-00",
+            "content": "@@ -728,16 +728,20 @@\n mpoline(\n+None\n )%0A    wh\n",
+            "lines": "46"
+        },
+        {
+            "label": "2025-11-05_10-18-20",
+            "content": "@@ -991,19 +991,16 @@\n .arrive(\n-Kid\n )%0A%0Amain(\n",
+            "lines": "46"
+        },
+        {
+            "label": "2025-11-05_10-18-54",
+            "content": "@@ -646,24 +646,25 @@\n    return f%22\n+%5B\n %7Bself.playin\n@@ -669,12 +669,14 @@\n ing%7D\n+%5D\n  =%3E \n+%5B\n %7Bsel\n@@ -685,16 +685,17 @@\n waiting%7D\n+%5D\n %22%0A%0Adef m\n",
+            "lines": "46"
+        },
+        {
+            "label": "2025-11-05_10-19-35",
+            "content": "@@ -459,22 +459,8 @@\n self\n-, counter: int\n ):%0A \n@@ -500,73 +500,8 @@\n  %5B%5D%0A\n-        for _ in range(counter):%0A            self.playing = None%0A\n     \n",
+            "lines": "46"
+        },
+        {
+            "label": "2025-11-05_10-28-01",
+            "content": "@@ -803,17 +803,16 @@\n mpoline(\n-0\n )%0A    wh\n",
+            "lines": "48"
+        },
+        {
+            "label": "2025-11-05_10-29-16",
+            "content": "@@ -693,39 +693,8 @@\n g)%0A%0A\n-    def enter(self):%0A        %0A%0A\n     \n@@ -1010,40 +1010,8 @@\n la)%0A\n-        if args%5B0%5D == %22enter%22:%0A%0A\n     \n",
+            "lines": "48"
+        },
+        {
+            "label": "2025-11-05_10-35-01",
+            "content": "@@ -268,22 +268,26 @@\n rn self.\n-__no\n+get_na\n me\n+()\n %0A    %0A  \n@@ -319,39 +319,43 @@\n     return self.\n-_\n+get\n _idade\n+()\n %0A    %0A    def __\n@@ -713,78 +713,8 @@\n lf):\n-%0A%0A    def leave(self):%0A%0A    def removeKid(self, name: str): Kid %7C None\n %0A   \n",
+            "lines": "53"
+        },
+        {
+            "label": "2025-11-05_10-37-46",
+            "content": "class Kid:\n    def __init__(self, nome: str, idade: int):\n        self.__nome = nome\n        self.__idade = idade\n        \n    def get_name(self):\n        return self.__nome\n\n    def get_age(self):\n        return self.__idade\n    \n    def set_name(self):\n        return self.__nome\n    \n    def set_age(self):\n        return self.__idade\n    \n    def __str__(self):\n        return f\"{self.__nome},{self.__idade}\"\n\nclass Trampoline: \n    def __init__(self, counter: int):\n        self.playing: Kid | None = []\n        for _ in range(counter):\n            self.playing = None\n        self.waiting: Kid | None = []\n\n    def arrive(self, kid: Kid):\n        self.playing.append(self.waiting)\n\n    def enter(self):\n\n    def leave(self):\n\n    def removeKid(self, name: str): Kid | None\n        \n\n    def __str__(self):\n        return f\"{self.playing} => {self.waiting}\"\n\ndef main():\n    pula_pula = Trampoline(0)\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(pula_pula)\n        if args[0] == \"enter\":\n\n        if args[0] == \"arrive\":\n            pula_pula.arrive(Kid)\n\nmain()",
+            "lines": "57"
+        }
+    ]
+}

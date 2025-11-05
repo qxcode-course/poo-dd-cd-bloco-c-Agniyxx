@@ -13,21 +13,32 @@ class Market:
         self.counters: Person | None = [] 
         for _ in range(num_counters):
             self.counters = None
-        self.waiting: Person = []
+        self.waiting: Person |None = []
     
     def __str__(self):
         return f"Caixas: [{self.counters}]\Espera: [{self.waiting}]"
     
-    def arrive(slef, person: Person):
-
+    def arrive(self, person: Person):
+        self.counters.append(self.waiting)
 
     def call(self, index: int):
+        if self.counters is None:
+            print("fail: niguem no caixa")
+            return
+        if self.waiting is None:
+            print("fail: sem cliente")
+            return
+        else:
+            print("fail: caixa ocupado")
 
-    def finish(index:int): Person | None
-    
+    def finish(self, index:int): Person | None
+            print("fail: caixa inexistente")
+            print("fail: caixa vazio")
+        self.counters = Person
+        self.counters = None
 
 def main():
-    mercado = Market()
+    mercado = Market(0)
     while True:
         line = input()
         print(f"${line}")
