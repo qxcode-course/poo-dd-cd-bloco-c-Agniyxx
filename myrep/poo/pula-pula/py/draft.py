@@ -9,34 +9,46 @@ class Kid:
     def get_age(self):
         return self.__idade
     
-    def set_name(self):
-        return self.__nome
-    
-    def set_age(self):
-        return self.__idade
-    
     def __str__(self):
         return f"{self.__nome},{self.__idade}"
 
 class Trampoline: 
     def __init__(self, counter: int):
-        self.playing: Kid | None = []
+        self.playing: list[Kid | None] = []
         for _ in range(counter):
             self.playing = None
-        self.waiting: Kid | None = []
+        self.waiting: list(reversed[Kid | None]) = []
 
-    def arrive(self, kid: Kid):
-        self.playing.append(self.waiting)
+    def arrive(self, kid: Kid): #entrar na fila
+        self.waiting.append(kid)
 
-    def enter(self):
+    def enter(self): #ir pro final da fila
+        if not self.waiting:
+            print("fail: ninguem na fila de espera")
+            return
+        kid = self.waiting.pop(0)
+        self.playing.append(kid)
 
-    def leave(self):
+    def leave(self, nome):
+        if not self.playing:
+            print("fail: ninguem no pula-pula")
+            return
+        kid = self.playing.pop(0)
+        self.waiting.append(kid)
 
-    def removeKid(self, name: str): Kid | None
-        
 
+    def removeKid(self, name: str): 
+        for lista in [self.waiting, self.playing]:
+            for i, kid in enumerate(lista):
+                if kid.get_name() == name:
+                    lista.pop(i)
+                    return     
+        print(f"fail: {name} não encontrado")
+    
     def __str__(self):
-        return f"{self.playing} => {self.waiting}"
+        waiting_str = ", ".join(str(kid) for kid in self.waiting)
+        playing_str = ", ".join(str(kid) for kid in self.playing)
+        return f"[{waiting_str}:]=> [{playing_str}]"
 
 def main():
     pula_pula = Trampoline(0)
@@ -47,11 +59,19 @@ def main():
 
         if args[0] == "end":
             break
-        if args[0] == "show":
+        elif args[0] == "show":
             print(pula_pula)
-        if args[0] == "enter":
-
-        if args[0] == "arrive":
-            pula_pula.arrive(Kid)
+        elif args[0] == "arrive":
+            nome = args[1]
+            idade = int(args[2])
+            pula_pula.arrive(Kid(nome, idade))
+        elif args[0] == "enter":
+            pula_pula.enter()
+            
+        elif args[0] =="leave":
+            pula_pula.leave()
+        elif args[0] =="remove":
+            nome = args[1]
+            pula_pula.removeKid(nome)
 
 main()
