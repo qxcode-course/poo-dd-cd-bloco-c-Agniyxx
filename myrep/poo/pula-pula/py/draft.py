@@ -10,19 +10,18 @@ class Kid:
         return self.__idade
     
     def __str__(self):
-        return f"{self.__nome},{self.__idade}"
+        return f"{self.__nome}:{self.__idade}"
 
 class Trampoline: 
-    def __init__(self, counter: int):
-        self.playing: list[Kid | None] = []
-        for _ in range(counter):
-            self.playing = None
-        self.waiting: list(reversed[Kid | None]) = []
+    def __init__(self, counter: int = 0):
+        self.playing: list[Kid] = []
+        self.waiting: list[Kid] = []
+        self.count = counter
 
-    def arrive(self, kid: Kid): #entrar na fila
-        self.waiting.append(kid)
+    def arrive(self, kid: Kid):
+        self.waiting.insert(0, kid)
 
-    def enter(self): #ir pro final da fila
+    def enter(self):
         if not self.waiting:
             print("fail: ninguem na fila de espera")
             return
@@ -48,7 +47,7 @@ class Trampoline:
     def __str__(self):
         waiting_str = ", ".join(str(kid) for kid in self.waiting)
         playing_str = ", ".join(str(kid) for kid in self.playing)
-        return f"[{waiting_str}:]=> [{playing_str}]"
+        return f"[{waiting_str}] => [{playing_str}]"
 
 def main():
     pula_pula = Trampoline(0)
@@ -67,7 +66,6 @@ def main():
             pula_pula.arrive(Kid(nome, idade))
         elif args[0] == "enter":
             pula_pula.enter()
-            
         elif args[0] =="leave":
             pula_pula.leave()
         elif args[0] =="remove":
