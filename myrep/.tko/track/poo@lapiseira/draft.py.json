@@ -1,0 +1,54 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-08_13-02-42",
+            "content": "@@ -85,52 +85,8 @@\n  =%0A%0A\n-    def __str__(self):%0A        return f%22 %22%0A%0A\n clas\n@@ -182,78 +182,4 @@\n  = 0\n-%0A        self.tamanho: int = 0%0A%0A    def __str__(self):%0A        return f%22 %22\n",
+            "lines": "9"
+        },
+        {
+            "label": "2025-11-08_13-06-33",
+            "content": "@@ -3,15 +3,17 @@\n ass \n-Grafite\n+Lapiseira\n :%0A  \n@@ -79,17 +79,16 @@\n tambor =\n- \n %0A%0A    de\n@@ -127,33 +127,31 @@\n f%22 %22%0A%0Aclass \n-Lapiseira\n+Grafite\n :%0A    def __\n@@ -219,22 +219,15 @@\n or: \n-list%5B\n int\n-%5D\n  = \n-%5B%5D\n+0\n %0A   \n",
+            "lines": "16"
+        },
+        {
+            "label": "2025-11-08_13-12-24",
+            "content": "@@ -308,256 +308,4 @@\n f%22 %22\n-%0A    %0A%0Adef main():%0A    while True:%0A        lapiseira = Lapiseira()%0A        line = input()%0A        print(f%22$%7Bline%7D%22)%0A        args = line.split()%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22show%22:%0A            print(lapiseira)%0A%0A\n",
+            "lines": "16"
+        },
+        {
+            "label": "2025-11-08_13-17-27",
+            "content": "@@ -33,115 +33,32 @@\n self\n-, dureza: str, calibre: int, tamanho: int):%0A        self.__dureza = dureza%0A        self.__calibre = calibre\n+):%0A        self.__bico =\n %0A   \n@@ -76,22 +76,13 @@\n _tam\n-anho = tamanho\n+bor =\n  %0A%0A \n@@ -124,57 +124,9 @@\n n f%22\n-%7Bself.__dureza%7D%7Bself.__calibre%7D, %7Bself.__tamanho%7D\n+ \n %22%0A%0Ac\n@@ -554,19 +554,10 @@\n piseira)\n-%0A        \n %0A%0A\n",
+            "lines": "30"
+        },
+        {
+            "label": "2025-11-08_13-22-16",
+            "content": "@@ -176,64 +176,8 @@\n o %0A%0A\n-    def get_dureza(self):%0A        return self.__dureza%0A%0A\n     \n",
+            "lines": "32"
+        },
+        {
+            "label": "2025-11-08_13-23-10",
+            "content": "@@ -57,12 +57,10 @@\n re: \n-floa\n+in\n t, t\n@@ -69,12 +69,8 @@\n anho\n-__mm\n : in\n@@ -163,11 +163,8 @@\n anho\n-_mm\n  = t\n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-11-08_13-25-42",
+            "content": "@@ -178,20 +178,17 @@\n  tamanho\n-__mm\n+ \n %0A%0A    de\n@@ -239,125 +239,8 @@\n reza\n-%0A    def get_calibre(self):%0A        return self.__calibre%0A    def get_tamanho(self):%0A        return self.__tamanho_mm\n %0A%0A  \n@@ -296,11 +296,8 @@\n eza%7D\n-mm,\n %7Bsel\n@@ -326,18 +326,16 @@\n tamanho%7D\n-mm\n %22%0A%0Aclass\n@@ -453,11 +453,14 @@\n elf.\n-bic\n+tamanh\n o: i\n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-11-08_13-29-36",
+            "content": "@@ -496,28 +496,8 @@\n self\n-, calibre: float = 0\n ):%0A \n@@ -511,34 +511,33 @@\n self.calibre\n- = calibre\n+: int = 0\n %0A        sel\n@@ -562,12 +562,10 @@\n %5D = \n-None\n+%5B%5D\n %0A   \n@@ -578,21 +578,25 @@\n elf.bico\n+: int\n  = \n-%5B%5D\n+0\n %0A%0A    de\n@@ -632,21 +632,22 @@\n rn f%22 %22%0A\n-\n     %0A\n+%0A\n def main\n",
+            "lines": "39"
+        },
+        {
+            "label": "2025-11-08_13-32-10",
+            "content": "@@ -612,72 +612,8 @@\n %5B%5D%0A%0A\n-    def inserir(self):%0A        if self.get_grafite() =! self.:%0A%0A\n     \n",
+            "lines": "38"
+        },
+        {
+            "label": "2025-11-08_13-34-23",
+            "content": "class Grafite:\n    def __init__(self, dureza: str, calibre: float, tamanho__mm: int):\n        self.__dureza = dureza\n        self.__calibre = calibre\n        self.__tamanho_mm = tamanho__mm\n\n    def get_dureza(self):\n        return self.__dureza\n    def get_calibre(self):\n        return self.__calibre\n    def get_tamanho(self):\n        return self.__tamanho_mm\n\n    def __str__(self):\n        return f\"{self.__dureza}mm,{self.__calibre}, {self.__tamanho}mm\"\n\nclass Lapiseira:\n    def __init__(self, calibre: float = 0):\n        self.calibre = calibre\n        self.tambor: list[int] = None\n        self.bico = []\n\n    def inserir(self):\n        if self.get_grafite() =! self.:\n\n    def __str__(self):\n        return f\" \"\n    \ndef main():\n    while True:\n        lapiseira = Lapiseira()\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(lapiseira)\n        \n\n",
+            "lines": "41"
+        }
+    ]
+}
