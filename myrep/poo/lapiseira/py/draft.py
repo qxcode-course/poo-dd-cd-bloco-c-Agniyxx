@@ -21,10 +21,18 @@ class Lapiseira:
         self.bico = []
 
     def inserir(self):
-        if self.get_grafite() =! self.:
+        if self.get_grafite() != self.get_calibre():
+            print("fail: grafite não compativel")
+
+    def puxar(self):
+        if self.bico is not None: 
+            print(" fail: primeiro remova o primeiro")
+
+    def remover(self):
+        return self.bico 
 
     def __str__(self):
-        return f" "
+        return f"Calibre: {self.calibre}, bico: {self.bico}, tambor: {self.tambor}"
     
 def main():
     while True:
@@ -37,5 +45,10 @@ def main():
             break
         if args[0] == "show":
             print(lapiseira)
+        if args[0] == "init":
+            calibre = args[1]
+            bico = args[2]
+            tambor = args[3]
+            lapiseira = Lapiseira(bico, tambor)
         
-
+main()

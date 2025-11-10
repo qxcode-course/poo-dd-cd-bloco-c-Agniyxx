@@ -47,8 +47,53 @@
         },
         {
             "label": "2025-11-08_13-34-23",
-            "content": "class Grafite:\n    def __init__(self, dureza: str, calibre: float, tamanho__mm: int):\n        self.__dureza = dureza\n        self.__calibre = calibre\n        self.__tamanho_mm = tamanho__mm\n\n    def get_dureza(self):\n        return self.__dureza\n    def get_calibre(self):\n        return self.__calibre\n    def get_tamanho(self):\n        return self.__tamanho_mm\n\n    def __str__(self):\n        return f\"{self.__dureza}mm,{self.__calibre}, {self.__tamanho}mm\"\n\nclass Lapiseira:\n    def __init__(self, calibre: float = 0):\n        self.calibre = calibre\n        self.tambor: list[int] = None\n        self.bico = []\n\n    def inserir(self):\n        if self.get_grafite() =! self.:\n\n    def __str__(self):\n        return f\" \"\n    \ndef main():\n    while True:\n        lapiseira = Lapiseira()\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(lapiseira)\n        \n\n",
+            "content": "@@ -673,27 +673,9 @@\n elf.\n-get_lapiseira:%0A    \n+:\n %0A%0A  \n@@ -968,142 +968,8 @@\n ra)%0A\n-        if args%5B0%5D == %22init%22:%0A            bico = args%5B1%5D%0A            tambor = args%5B2%5D%0A            lapiseira = Lapiseira(bico, tambor)%0A\n     \n",
             "lines": "41"
+        },
+        {
+            "label": "2025-11-10_16-08-50",
+            "content": "@@ -665,10 +665,10 @@\n e() \n-!\n =\n+!\n  sel\n@@ -677,19 +677,18 @@\n get_\n-calibre():%0A\n+lapiseira:\n %0A   \n",
+            "lines": "46"
+        },
+        {
+            "label": "2025-11-10_16-10-19",
+            "content": "@@ -735,73 +735,9 @@\n n f%22\n-Calibre: %7Bself.calibre%7D, bico: %7Bself.bico%7D, tambor: %7Bself.tambor%7D\n+ \n %22%0A  \n",
+            "lines": "47"
+        },
+        {
+            "label": "2025-11-10_16-13-59",
+            "content": "@@ -688,57 +688,13 @@\n ():%0A\n+%0A\n     \n-        print(%22fail: grafite n%C3%A3o compativel%22)\n %0A%0A  \n",
+            "lines": "47"
+        },
+        {
+            "label": "2025-11-10_16-15-32",
+            "content": "@@ -739,171 +739,8 @@\n %22)%0A%0A\n-    def puxar(self):%0A        if self.bico is not None: %0A            print(%22 fail: primeiro remova o primeiro%22)%0A%0A    def remover(self):%0A        return self.bico %0A%0A%0A\n     \n",
+            "lines": "46"
+        },
+        {
+            "label": "2025-11-10_16-26-52",
+            "content": "@@ -897,16 +897,17 @@\n .bico %0A%0A\n+%0A\n     def \n@@ -1397,14 +1397,9 @@\n        %0A\n-main()\n+%0A\n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-10_16-27-23",
+            "content": "@@ -1287,38 +1287,8 @@\n t%22:%0A\n-            calibre = args%5B1%5D%0A\n     \n@@ -1311,9 +1311,9 @@\n rgs%5B\n-2\n+1\n %5D%0A  \n@@ -1340,9 +1340,9 @@\n rgs%5B\n-3\n+2\n %5D%0A  \n",
+            "lines": "53"
+        },
+        {
+            "label": "2025-11-10_16-28-53",
+            "content": "@@ -924,28 +924,24 @@\n f):%0A        \n-    \n return f%22Cal\n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-10_16-29-47",
+            "content": "@@ -920,32 +920,36 @@\n (self):%0A        \n+    \n return f%22Calibre\n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-10_16-29-55",
+            "content": "class Grafite:\n    def __init__(self, dureza: str, calibre: float, tamanho__mm: int):\n        self.__dureza = dureza\n        self.__calibre = calibre\n        self.__tamanho_mm = tamanho__mm\n\n    def get_dureza(self):\n        return self.__dureza\n    def get_calibre(self):\n        return self.__calibre\n    def get_tamanho(self):\n        return self.__tamanho_mm\n\n    def __str__(self):\n        return f\"{self.__dureza}mm,{self.__calibre}, {self.__tamanho}mm\"\n\nclass Lapiseira:\n    def __init__(self, calibre: float = 0):\n        self.calibre = calibre\n        self.tambor: list[int] = None\n        self.bico = []\n\n    def inserir(self):\n        if self.get_grafite() != self.get_calibre():\n            print(\"fail: grafite n\u00e3o compativel\")\n\n    def puxar(self):\n        if self.bico is not None: \n            print(\" fail: primeiro remova o primeiro\")\n\n    def remover(self):\n        return self.bico \n\n    def __str__(self):\n        return f\"Calibre: {self.calibre}, bico: {self.bico}, tambor: {self.tambor}\"\n    \ndef main():\n    while True:\n        lapiseira = Lapiseira()\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(lapiseira)\n        if args[0] == \"init\":\n            calibre = args[1]\n            bico = args[2]\n            tambor = args[3]\n            lapiseira = Lapiseira(bico, tambor)\n        \nmain()",
+            "lines": "54"
         }
     ]
 }
