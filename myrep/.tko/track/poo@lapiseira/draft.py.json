@@ -102,8 +102,33 @@
         },
         {
             "label": "2025-11-11_11-26-00",
-            "content": "@@ -898,165 +898,8 @@\n ico \n-%0A    %0A    def escrever_folha(self):%0A        if self.grafite is None:%0A            print(%22fail: o bico est%C3%A1 vazio%22)%0A            return%0A        if self.grafite \n %0A%0A  \n",
-            "lines": "54"
+            "content": "@@ -1,911 +1,43 @@\n-class Grafite:%0A    def __init__(self, dureza: str, calibre: float, tamanho__mm: int):%0A        self.__dureza = dureza%0A        self.__calibre = calibre%0A        self.__tamanho_mm = tamanho__mm%0A%0A    def get_dureza(self):%0A        return self.__dureza%0A    def get_calibre(self):%0A        return self.__calibre%0A    def get_tamanho(self):%0A        return self.__tamanho_mm%0A%0A    def __str__(self):%0A        return %22%7Bself.__dureza%7D,%7Bself.__calibre%7D,%7Bself.__tamanho%7D%22%0A%0Aclass Lapiseira:%0A    def __init__(self, calibre: float = 0):%0A        self.calibre = calibre%0A        self.tambor: list%5Bint%5D = None%0A        self.bico = %5B%5D%0A%0A    def inserir(self):%0A        if self.get_grafite() != self.get_calibre():%0A            print(%22fail: grafite n%C3%A3o compativel%22)%0A%0A    def puxar(self):%0A        if self.bico is not None: %0A            print(%22 fail: primeiro remova o outro grafite%22)%0A%0A    def remover(self):%0A        return self.bico %0A    %0A\n+@@ -898,165 +898,8 @@%0A ico %0A-%250A    %250A\n     \n@@ -57,25 +57,27 @@\n folha(self):\n-%0A\n+%250A\n         if s\n@@ -96,17 +96,19 @@\n is None:\n-%0A\n+%250A\n         \n@@ -117,17 +117,19 @@\n   print(\n-%22\n+%2522\n fail: o \n@@ -140,18 +140,27 @@\n  est\n-%C3%A1 vazio%22)%0A\n+%25C3%25A1 vazio%2522)%250A\n     \n@@ -173,17 +173,19 @@\n   return\n-%0A\n+%250A\n         \n@@ -205,540 +205,14 @@\n te %0A\n-%0A    def __str__(self):%0A        return f%22Calibre: %7Bself.calibre%7D, bico: %7Bself.bico%7D, tambor: %7Bself.tambor%7D%22%0A    %0Adef main():%0A    while True:%0A        lapiseira = Lapiseira()%0A        line = input()%0A        print(f%22$%7Bline%7D%22)%0A        args = line.split()%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22show%22:%0A            print(lapiseira)%0A        if args%5B0%5D == %22init%22:%0A            calibre = args%5B1%5D%0A            bico = args%5B2%5D%0A            tambor = args%5B3%5D%0A            lapiseira = Lapiseira(bico, tambor)%0A        %0Amain()\n+ %250A%250A  %0A\n",
+            "lines": "4"
+        },
+        {
+            "label": "2025-11-11_15-31-06",
+            "content": "@@ -411,17 +411,17 @@\n _dureza%7D\n-:\n+,\n %7Bself.__\n@@ -428,17 +428,17 @@\n calibre%7D\n-:\n+,\n %7Bself.__\n@@ -873,62 +873,8 @@\n f):%0A\n-        if self.bico != None:%0A        %0A        aux = %0A\n     \n@@ -895,16 +895,16 @@\n f.bico %0A\n+\n     %0A   \n@@ -1031,24 +1031,8 @@\n urn%0A\n-        aux = %0A%0A\n     \n@@ -1055,96 +1055,8 @@\n ite \n-%3C= 10:%0A            print(%22grafite insuficiente, retire o grafite%22)%0A            %0A        \n %0A%0A  \n",
+            "lines": "60"
+        },
+        {
+            "label": "2025-11-11_15-56-20",
+            "content": "@@ -800,24 +800,25 @@\n      print(%22\n+ \n fail: primei\n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-11_15-59-45",
+            "content": "@@ -1507,34 +1507,32 @@\n   break%0A        \n-el\n if args%5B0%5D == %22s\n@@ -1566,34 +1566,32 @@\n iseira)%0A        \n-el\n if args%5B0%5D == %22i\n@@ -1734,33 +1734,8 @@\n or)%0A\n-        elif args%5B0%5D == %0A\n     \n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-11_16-06-33",
+            "content": "@@ -1204,28 +1204,8 @@\n    %0A\n-    def pull(self):%0A\n     \n@@ -1762,220 +1762,8 @@\n  == \n-%22insert%22:%0A            lapiseira.inserir()%0A        elif args%5B0%5D == %22remove%22:%0A            lapiseira.remover()%0A        elif args%5B0%5D == %22write%22:%0A            lapiseira.escrever_folha()%0A        elif args%5B0%5D == %22pull%22:%0A\n %0A   \n",
+            "lines": "69"
+        },
+        {
+            "label": "2025-11-11_16-12-34",
+            "content": "class Grafite:\n    def __init__(self, dureza: str, calibre: float, tamanho__mm: int):\n        self.__dureza = dureza\n        self.__calibre = calibre\n        self.__tamanho_mm = tamanho__mm\n\n    def get_dureza(self):\n        return self.__dureza\n    def get_calibre(self):\n        return self.__calibre\n    def get_tamanho(self):\n        return self.__tamanho_mm\n\n    def __str__(self):\n        return \"{self.__dureza}:{self.__calibre}:{self.__tamanho}\"\n\nclass Lapiseira:\n    def __init__(self, calibre: float = 0):\n        self.calibre = calibre\n        self.tambor: list[int] = None\n        self.bico = []\n\n    def inserir(self):\n        if self.get_grafite() != self.get_calibre():\n            print(\"fail: grafite n\u00e3o compativel\")\n\n    def puxar(self):\n        if self.bico is not None: \n            print(\"fail: primeiro remova o outro grafite\")\n\n    def remover(self):\n        if self.bico != None:\n        \n        aux = \n        return self.bico \n    \n    def escrever_folha(self):\n        if self.grafite is None:\n            print(\"fail: o bico est\u00e1 vazio\")\n            return\n        aux = \n\n        if self.grafite <= 10:\n            print(\"grafite insuficiente, retire o grafite\")\n            \n    def pull(self):\n        \n\n    def __str__(self):\n        return f\"Calibre: {self.calibre}, bico: {self.bico}, tambor: {self.tambor}\"\n    \ndef main():\n    while True:\n        lapiseira = Lapiseira()\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(lapiseira)\n        elif args[0] == \"init\":\n            calibre = args[1]\n            bico = args[2]\n            tambor = args[3]\n            lapiseira = Lapiseira(bico, tambor)\n        elif args[0] == \"insert\":\n            lapiseira.inserir()\n        elif args[0] == \"remove\":\n            lapiseira.remover()\n        elif args[0] == \"write\":\n            lapiseira.escrever_folha()\n        elif args[0] == \"pull\":\n\n        \nmain()",
+            "lines": "77"
         }
     ]
 }

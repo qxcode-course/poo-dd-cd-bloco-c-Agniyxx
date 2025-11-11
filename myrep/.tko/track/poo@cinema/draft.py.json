@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-11_16-39-18",
+            "content": "@@ -427,23 +427,8 @@\n self\n-, capacity: int\n ):%0A \n@@ -443,60 +443,8 @@\n elf.\n-capacity = 0%0A        self.seats %0A        self.search\n %0A%0A%0Ad\n@@ -575,8 +575,16 @@\n plit()%0A%0A\n+        \n",
+            "lines": "30"
+        },
+        {
+            "label": "2025-11-11_16-41-08",
+            "content": "@@ -646,89 +646,4 @@\n ()%0A%0A\n-    if args%5B0%5D==%22end%22:%0A        break%0A    elif args%5B0%5D ==%22show%22:%0A        print(cinema)\n",
+            "lines": "31"
+        },
+        {
+            "label": "2025-11-11_16-42-09",
+            "content": "@@ -537,16 +537,20 @@\n e True:%0A\n+    \n     cine\n@@ -642,20 +642,16 @@\n plit()%0A%0A\n-    \n     if a\n@@ -660,23 +660,17 @@\n s%5B0%5D\n- \n ==\n- \n %22end%22:%0A\n-    \n     \n@@ -683,20 +683,18 @@\n eak%0A    \n-    \n+el\n if args%5B\n@@ -706,20 +706,16 @@\n %22show%22:%0A\n-    \n         \n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-11-11_16-44-04",
+            "content": "class Client:\n    def __init__(self, id: str, phone: int):\n        self.__id = id\n        self.__id = phone\n\n    def getPhone(self):\n        return self.__phone\n    def setPhone(self, phone: int):\n        self.__phone = phone\n    def getId(self):\n        return self.__id\n    def setId(self):\n        self.__id = id\n\n    def __str__(self):\n        return f\"{self.__id}:{self.__phone}\"\n        \nclass Theater:\n    def __init__(self, capacity: int):\n        self.capacity = 0\n        self.seats \n        self.search\n\n\ndef main():\n    while True:\n    cinema = Theater()\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] ==\"show\":\n            print(cinema)",
+            "lines": "35"
+        }
+    ]
+}

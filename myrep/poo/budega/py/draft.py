@@ -57,4 +57,3 @@ main()
 
 #.append() cria  a lista 
 #join contrariio do split 
-#

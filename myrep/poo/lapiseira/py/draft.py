@@ -12,7 +12,7 @@ class Grafite:
         return self.__tamanho_mm
 
     def __str__(self):
-        return "{self.__dureza},{self.__calibre},{self.__tamanho}"
+        return "{self.__dureza}:{self.__calibre}:{self.__tamanho}"
 
 class Lapiseira:
     def __init__(self, calibre: float = 0):
@@ -26,16 +26,26 @@ class Lapiseira:
 
     def puxar(self):
         if self.bico is not None: 
-            print(" fail: primeiro remova o outro grafite")
+            print("fail: primeiro remova o outro grafite")
 
     def remover(self):
+        if self.bico != None:
+        
+        aux = 
         return self.bico 
     
     def escrever_folha(self):
         if self.grafite is None:
             print("fail: o bico está vazio")
             return
-        if self.grafite 
+        aux = 
+
+        if self.grafite <= 10:
+            print("grafite insuficiente, retire o grafite")
+            
+    def pull(self): bool
+
+
 
     def __str__(self):
         return f"Calibre: {self.calibre}, bico: {self.bico}, tambor: {self.tambor}"
@@ -49,12 +59,21 @@ def main():
 
         if args[0] == "end":
             break
-        if args[0] == "show":
+        elif args[0] == "show":
             print(lapiseira)
-        if args[0] == "init":
+        elif args[0] == "init":
             calibre = args[1]
             bico = args[2]
             tambor = args[3]
             lapiseira = Lapiseira(bico, tambor)
+        elif args[0] == "insert":
+            lapiseira.inserir()
+        elif args[0] == "remove":
+            lapiseira.remover()
+        elif args[0] == "write":
+            lapiseira.escrever_folha()
+        elif args[0] == "pull":
+            lapiseira.pull()
+
         
 main()
