@@ -92,7 +92,17 @@
         },
         {
             "label": "2025-11-10_16-29-55",
-            "content": "class Grafite:\n    def __init__(self, dureza: str, calibre: float, tamanho__mm: int):\n        self.__dureza = dureza\n        self.__calibre = calibre\n        self.__tamanho_mm = tamanho__mm\n\n    def get_dureza(self):\n        return self.__dureza\n    def get_calibre(self):\n        return self.__calibre\n    def get_tamanho(self):\n        return self.__tamanho_mm\n\n    def __str__(self):\n        return f\"{self.__dureza}mm,{self.__calibre}, {self.__tamanho}mm\"\n\nclass Lapiseira:\n    def __init__(self, calibre: float = 0):\n        self.calibre = calibre\n        self.tambor: list[int] = None\n        self.bico = []\n\n    def inserir(self):\n        if self.get_grafite() != self.get_calibre():\n            print(\"fail: grafite n\u00e3o compativel\")\n\n    def puxar(self):\n        if self.bico is not None: \n            print(\" fail: primeiro remova o primeiro\")\n\n    def remover(self):\n        return self.bico \n\n    def __str__(self):\n        return f\"Calibre: {self.calibre}, bico: {self.bico}, tambor: {self.tambor}\"\n    \ndef main():\n    while True:\n        lapiseira = Lapiseira()\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(lapiseira)\n        if args[0] == \"init\":\n            calibre = args[1]\n            bico = args[2]\n            tambor = args[3]\n            lapiseira = Lapiseira(bico, tambor)\n        \nmain()",
+            "content": "@@ -395,16 +395,17 @@\n  return \n+f\n %22%7Bself._\n@@ -412,16 +412,18 @@\n _dureza%7D\n+mm\n ,%7Bself._\n@@ -432,16 +432,17 @@\n alibre%7D,\n+ \n %7Bself.__\n@@ -449,16 +449,18 @@\n tamanho%7D\n+mm\n %22%0A%0Aclass\n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-11_11-24-38",
+            "content": "@@ -833,21 +833,16 @@\n a o \n-outro grafite\n+primeiro\n %22)%0A%0A\n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-11_11-26-00",
+            "content": "@@ -898,165 +898,8 @@\n ico \n-%0A    %0A    def escrever_folha(self):%0A        if self.grafite is None:%0A            print(%22fail: o bico est%C3%A1 vazio%22)%0A            return%0A        if self.grafite \n %0A%0A  \n",
             "lines": "54"
         }
     ]

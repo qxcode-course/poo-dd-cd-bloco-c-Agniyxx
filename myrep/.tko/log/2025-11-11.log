@@ -1,0 +1,10 @@
+2025-11-11 11:23:52, MOVE, v:1, k:poo@lapiseira, mode:PICK
+2025-11-11 11:23:53, EXEC, v:1, k:poo@lapiseira, mode:FULL, rate:0
+2025-11-11 11:24:38, EXEC, v:1, k:poo@lapiseira, mode:FULL, rate:0, size:54
+2025-11-11 11:24:55, EXEC, v:1, k:poo@lapiseira, mode:FULL, rate:0
+2025-11-11 11:24:55, EXEC, v:1, k:poo@lapiseira, mode:FULL, rate:0
+2025-11-11 11:26:00, EXEC, v:1, k:poo@lapiseira, mode:FULL, rate:0, size:54
+2025-11-11 11:26:57, EXEC, v:1, k:poo@lapiseira, mode:FULL, rate:0
+2025-11-11 11:31:23, EXEC, v:1, k:poo@lapiseira, mode:FULL, rate:0, size:60
+2025-11-11 11:31:23, EXEC, v:1, k:poo@lapiseira, mode:FULL, rate:0, size:60
+2025-11-11 11:31:25, MOVE, v:1, k:poo@lapiseira, mode:BACK

@@ -12,7 +12,7 @@ class Grafite:
         return self.__tamanho_mm
 
     def __str__(self):
-        return f"{self.__dureza}mm,{self.__calibre}, {self.__tamanho}mm"
+        return "{self.__dureza},{self.__calibre},{self.__tamanho}"
 
 class Lapiseira:
     def __init__(self, calibre: float = 0):
@@ -26,10 +26,16 @@ class Lapiseira:
 
     def puxar(self):
         if self.bico is not None: 
-            print(" fail: primeiro remova o primeiro")
+            print(" fail: primeiro remova o outro grafite")
 
     def remover(self):
         return self.bico 
+    
+    def escrever_folha(self):
+        if self.grafite is None:
+            print("fail: o bico está vazio")
+            return
+        if self.grafite 
 
     def __str__(self):
         return f"Calibre: {self.calibre}, bico: {self.bico}, tambor: {self.tambor}"
