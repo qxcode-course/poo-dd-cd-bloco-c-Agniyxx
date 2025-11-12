@@ -17,7 +17,12 @@
         },
         {
             "label": "2025-11-11_16-44-04",
-            "content": "class Client:\n    def __init__(self, id: str, phone: int):\n        self.__id = id\n        self.__id = phone\n\n    def getPhone(self):\n        return self.__phone\n    def setPhone(self, phone: int):\n        self.__phone = phone\n    def getId(self):\n        return self.__id\n    def setId(self):\n        self.__id = id\n\n    def __str__(self):\n        return f\"{self.__id}:{self.__phone}\"\n        \nclass Theater:\n    def __init__(self, capacity: int):\n        self.capacity = 0\n        self.seats \n        self.search\n\n\ndef main():\n    while True:\n    cinema = Theater()\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] ==\"show\":\n            print(cinema)",
+            "content": "@@ -537,20 +537,16 @@\n e True:%0A\n-    \n     cine\n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-11-12_10-45-35",
+            "content": "class Client:\n    def __init__(self, id: str, phone: int):\n        self.__id = id\n        self.__id = phone\n\n    def getPhone(self):\n        return self.__phone\n    def setPhone(self, phone: int):\n        self.__phone = phone\n    def getId(self):\n        return self.__id\n    def setId(self):\n        self.__id = id\n\n    def __str__(self):\n        return f\"{self.__id}:{self.__phone}\"\n        \nclass Theater:\n    def __init__(self, capacity: int):\n        self.capacity = 0\n        self.seats \n        self.search\n\n\ndef main():\n    while True:\n        cinema = Theater()\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] ==\"show\":\n            print(cinema)",
             "lines": "35"
         }
     ]

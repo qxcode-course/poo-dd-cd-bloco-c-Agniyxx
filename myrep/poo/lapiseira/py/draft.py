@@ -20,28 +20,42 @@ class Lapiseira:
         self.tambor: list[int] = None
         self.bico = []
 
-    def inserir(self):
+    def inserir(self, grafite: Grafite):
         if self.get_grafite() != self.get_calibre():
-            print("fail: grafite não compativel")
+            print("fail: calibre incompativel")
+        self.tambor.append(grafite)
 
     def puxar(self):
         if self.bico is not None: 
             print("fail: primeiro remova o outro grafite")
+            return
+        if not self.tambor:
+            print("fail: não a grafite no tambor")
+            return
+        self.bico = self.tambor.pop(0)
 
     def remover(self):
-        if self.bico != None:
-        
-        aux = 
-        return self.bico 
+        if self.bico is None:
+            print("fail: ")
+            self.__bico = None
     
     def escrever_folha(self):
         if self.grafite is None:
             print("fail: o bico está vazio")
             return
-        aux = 
-
-        if self.grafite <= 10:
+        if self.grafite == "HB":
+            return 1
+        if self.grafite == "2B":
+            return 2
+        if self.grafite == "4B":
+             return 4
+        if self.grafite == "6B":
+             return 6
+    
+        if self.bico.get_tamannho() <= 10:
             print("grafite insuficiente, retire o grafite")
+        else:
+            print("fail: grafite insuficiente, o texto ficou incompleto")
             
     def pull(self): bool
 
@@ -65,7 +79,7 @@ def main():
             calibre = args[1]
             bico = args[2]
             tambor = args[3]
-            lapiseira = Lapiseira(bico, tambor)
+            lapiseira = Lapiseira(calibre, bico, tambor)
         elif args[0] == "insert":
             lapiseira.inserir()
         elif args[0] == "remove":

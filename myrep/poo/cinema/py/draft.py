@@ -16,15 +16,15 @@ class Client:
         return f"{self.__id}:{self.__phone}"
         
 class Theater:
-    def __init__(self, capacity: int):
-        self.capacity = 0
+    def __init__(self, capacity: int = 0):
+        self.capacity = capacity
         self.seats 
-        self.search
+        
 
 
 def main():
     while True:
-    cinema = Theater()
+        cinema = Theater()
         line = input()
         print(f"${line}")
         args = line.split()
