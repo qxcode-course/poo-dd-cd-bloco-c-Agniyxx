@@ -17,8 +17,38 @@
         },
         {
             "label": "2025-11-14_20-45-43",
-            "content": "\nclass Slot: \n    def __init__(self):\n        self.__nome: str = \"empty\"\n        self.__qtd: int = 0\n        self.__pre\u00e7o: int = 0.0 \n\n    def get_nome(self):\n        return self.__nome\n    def get_qtd(self):\n        return self.__qtd\n    def get_pre\u00e7o(self):\n        return self.__pre\u00e7o\n    def set_name(self):\n        return self.__nome = nome\n    def set_qtd(self):\n        return self.__qtd = qtd\n    def set_pre\u00e7o(self):\n        return self.__pre\u00e7o = pre\u00e7o\n\n    def __str__(self):\n        return f\"[   empty : 0 U : 0.00 RS]\"\n    \nclass Machine:\n    def __init__(self, slot: Slot):\n        self.slot = slot\n",
+            "content": "@@ -609,36 +609,4 @@\n lot%0A\n-        %0A    def limpar(self):%0A%0A\n",
             "lines": "26"
+        },
+        {
+            "label": "2025-11-15_14-01-19",
+            "content": "@@ -1,13 +1,35 @@\n-%0A\n+@@ -1,590 +1,32 @@%0A-%250A\n class Slot: \n@@ -28,17 +28,19 @@\n s Slot: \n-%0A\n+%250A\n     def \n@@ -46,33 +46,35 @@\n  __init__(self):\n-%0A\n+%250A\n         self.__n\n@@ -88,16 +88,22 @@\n r = \n-%22\n+%2522\n empty\n-%22%0A\n+%2522%250A\n     \n@@ -125,17 +125,19 @@\n  int = 0\n-%0A\n+%250A\n         \n@@ -146,17 +146,22 @@\n lf.__pre\n-%C3%A7\n+%25C3%25A7\n o: int =\n@@ -165,18 +165,22 @@\n t = 0.0 \n-%0A%0A\n+%250A%250A\n     def \n@@ -186,33 +186,35 @@\n  get_nome(self):\n-%0A\n+%250A\n         return s\n@@ -219,25 +219,27 @@\n  self.__nome\n-%0A\n+%250A\n     def get_\n@@ -240,33 +240,35 @@\n f get_qtd(self):\n-%0A\n+%250A\n         return s\n@@ -276,17 +276,19 @@\n lf.__qtd\n-%0A\n+%250A\n     def \n@@ -290,33 +290,38 @@\n  def get_pre\n-%C3%A7\n+%25C3%25A7\n o(self):\n %0A        ret\n@@ -300,33 +300,35 @@\n re%25C3%25A7o(self):\n-%0A\n+%250A\n         return s\n@@ -336,19 +336,26 @@\n lf.__pre\n-%C3%A7o%0A\n+%25C3%25A7o%250A\n     def \n@@ -365,25 +365,27 @@\n _name(self):\n-%0A\n+%250A\n         retu\n@@ -405,17 +405,19 @@\n e = nome\n-%0A\n+%250A\n     def \n@@ -426,25 +426,27 @@\n t_qtd(self):\n-%0A\n+%250A\n         retu\n@@ -464,17 +464,19 @@\n td = qtd\n-%0A\n+%250A\n     def \n@@ -486,17 +486,22 @@\n _pre\n-%C3%A7\n+%25C3%25A7\n o(self):\n %0A   \n@@ -492,25 +492,27 @@\n 3%25A7o(self):\n-%0A\n+%250A\n         retu\n@@ -528,20 +528,34 @@\n _pre\n-%C3%A7\n+%25C3%25A7\n o = pre\n-%C3%A7o%0A%0A\n+%25C3%25A7o%250A%250A\n     \n@@ -564,33 +564,35 @@\n f __str__(self):\n-%0A\n+%250A\n         return f\n@@ -595,58 +595,54 @@\n rn f\n-%22%7Bself.__nome%7D:%7Bself.__qtd%7D:%7Bself.__pre%C3%A7o%7D:%22%0A    %0A\n+%2522%255B   empty : 0 U : 0.00 RS%255D%2522%250A    %250A\n clas\n@@ -651,17 +651,19 @@\n Machine:\n-%0A\n+%250A\n     def \n@@ -693,38 +693,141 @@\n ot):\n- #cada espiral %C3%A9 um array\n+%0A+@@ -583,33 +583,8 @@%250A ot):%250A-%0A  #ca%0A@@ -40,9 +40,14 @@%0A ral %0A-%25C3%25A9%0A+%2525C3%2525A9%0A  um %0A@@ -57,60 +57,11 @@%0A ay%250A %0A+%25250A\n %0A    \n+%0A-\n     \n@@ -842,25 +842,27 @@\n t = slot\n-%0A\n+%250A\n         \n %0A  %0A    \n@@ -857,20 +857,19 @@\n     \n-%0A  %0A\n+%250A\n     def \n __st\n@@ -868,66 +868,26 @@\n def \n-__str__(self):%0A        return f%22%5B   empty : 0 U : 0.00 RS%5D%22 %0A\n+limpar(self):%250A%0A %250A\n %0A\n",
+            "lines": "15"
+        },
+        {
+            "label": "2025-11-15_14-41-03",
+            "content": "@@ -732,224 +732,4 @@\n %22 %0A%0A\n-def main():%0A    slot = Slot():%0A    while True%0A        line = input()%0A        print(f%22$%7Bline%7D%22)%0A        args = line.split%0A%0A        if args%5B0%5D ==%22end%22:%0A            break%0A        if args%5B0%5D ==%22show%22:%0A            print(slot)\n",
+            "lines": "31"
+        },
+        {
+            "label": "2025-11-15_14-44-21",
+            "content": "@@ -757,16 +757,17 @@\n = Slot()\n+:\n %0A    whi\n@@ -773,17 +773,16 @@\n ile True\n-:\n %0A       \n",
+            "lines": "42"
+        },
+        {
+            "label": "2025-11-15_14-44-33",
+            "content": "@@ -280,16 +280,190 @@\n .__pre%C3%A7o\n+%0A    def set_name(self):%0A        return self.__nome = nome%0A    def set_qtd(self):%0A        return self.__qtd = qtd%0A    def set_pre%C3%A7o(self):%0A        return self.__pre%C3%A7o = pre%C3%A7o\n %0A%0A    de\n",
+            "lines": "42"
+        },
+        {
+            "label": "2025-11-15_14-44-53",
+            "content": "@@ -778,156 +778,4 @@\n lot)\n-%0A        if args%5B0%5D ==%22init%22:%0A            nome = args%5B1%5D%0A            qtd = args%5B2%5D%0A            pre%C3%A7o = args%5B3%5D%0A            slot = Slot(nome, qtd, pre%C3%A7o)\n",
+            "lines": "36"
+        },
+        {
+            "label": "2025-11-15_14-46-40",
+            "content": "\nclass Slot: \n    def __init__(self):\n        self.__nome: str = \"empty\"\n        self.__qtd: int = 0\n        self.__pre\u00e7o: int = 0.0 \n\n    def get_nome(self):\n        return self.__nome\n    def get_qtd(self):\n        return self.__qtd\n    def get_pre\u00e7o(self):\n        return self.__pre\u00e7o\n\n    def __str__(self):\n        return f\"{self.__nome}:{self.__qtd}:{self.__pre\u00e7o}:\"\n    \nclass Machine:\n    def __init__(self, slot: Slot): #cada espiral \u00e9 um array\n        self.slot = slot\n        \n  \n    def __str__(self):\n        return f\"[   empty : 0 U : 0.00 RS]\" \n\ndef main():\n    slot = Slot()\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split\n\n        if args[0] ==\"end\":\n            break\n        if args[0] ==\"show\":\n            print(slot)\n        if args[0] ==\"init\":\n            nome = args[1]\n            qtd = args[2]\n            pre\u00e7o = args[3]\n            slot = Slot(nome, qtd, pre\u00e7o)",
+            "lines": "41"
         }
     ]
 }

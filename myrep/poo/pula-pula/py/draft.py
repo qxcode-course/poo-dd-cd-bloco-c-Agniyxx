@@ -16,10 +16,10 @@ class Trampoline:
     def __init__(self, counter: int = 0):
         self.playing: list[Kid] = []
         self.waiting: list[Kid] = []
-        self.count = counter
+        self.counter = counter
 
     def arrive(self, kid: Kid):
-        self.waiting.insert(0, kid)
+        self.waiting.append(kid)
 
     def enter(self):
         if not self.waiting:

@@ -10,9 +10,12 @@ class Grafite:
         return self.__calibre
     def get_tamanho(self):
         return self.__tamanho_mm
+    
+    def set_tamanho(self, tam_novo: int):
+        self.__tamanho_mm = tam_novo
 
     def __str__(self):
-        return "{self.__dureza}:{self.__calibre}:{self.__tamanho}"
+        return "{self.__dureza}:{self.__calibre}:{self.__tamanho}mm"
 
 class Lapiseira:
     def __init__(self, calibre: float = 0):
@@ -42,24 +45,28 @@ class Lapiseira:
     def escrever_folha(self):
         if self.grafite is None:
             print("fail: o bico está vazio")
-            return
+            return 0
         if self.grafite == "HB":
             return 1
         if self.grafite == "2B":
             return 2
         if self.grafite == "4B":
-             return 4
+            return 4
         if self.grafite == "6B":
-             return 6
+            return 6
     
         if self.bico.get_tamannho() <= 10:
             print("grafite insuficiente, retire o grafite")
         else:
             print("fail: grafite insuficiente, o texto ficou incompleto")
             
-    def pull(self): bool
-
-
+    def pull(self): 
+        if self.bico is not None:
+            return False
+        if not self.tambor:
+            return False
+        self.bico = self.tambor.pop(0)
+        return True
 
     def __str__(self):
         return f"Calibre: {self.calibre}, bico: {self.bico}, tambor: {self.tambor}"

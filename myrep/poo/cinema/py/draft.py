@@ -43,7 +43,7 @@ class Theater:
         return self.seats
 
     def __str__(self):
-        return f[" ".join(str() for kid in self.seats)]
+        return f"[]"
 
 def main():
     cinema = Theater()

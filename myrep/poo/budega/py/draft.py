@@ -16,7 +16,9 @@ class Market:
         self.waiting: Person |None = []
     
     def __str__(self):
-        return f"Caixas: [{self.counters}]\Espera: [{self.waiting}]"
+        counters_str = ", ".join(str(i) if i is None else "vazio" for i in self.counters)
+        waiting_str = ", ".join(str(i) for i in self.waiting)
+        return f"Caixas: [{counters_str}]\Espera: [{waiting_str}]"
     
     def arrive(self, person: Person):
         self.counters.append(self.waiting)
@@ -31,11 +33,18 @@ class Market:
         else:
             print("fail: caixa ocupado")
 
-    def finish(self, index:int): Person | None
+    def finish(self, index: int):
+        if index < 0 or index >= len(self.counters):
             print("fail: caixa inexistente")
+            return
+        if self.counters[index] is not None:
             print("fail: caixa vazio")
-        self.counters = Person
-        self.counters = None
+            return
+        if not self.waiting:
+            print("fail: sem clientes na fila de espera")
+        client = self.waiting.pop(0)
+        self.counters[index] = client
+        print(f"ok: {client.get_name()} foi para o caixa {index}")
 
 def main():
     mercado = Market(0)
