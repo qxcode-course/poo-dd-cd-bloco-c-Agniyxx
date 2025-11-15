@@ -28,7 +28,7 @@ class Trampoline:
         kid = self.waiting.pop(0)
         self.playing.append(kid)
 
-    def leave(self, nome):
+    def leave(self):
         if not self.playing:
             print("fail: ninguem no pula-pula")
             return

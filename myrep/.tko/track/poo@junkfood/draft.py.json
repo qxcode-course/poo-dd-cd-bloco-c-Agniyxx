@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-14_20-22-53",
+            "content": "@@ -132,160 +132,8 @@\n 0 %0A%0A\n-    def get_name(self):%0A        return self.__name%0A    def get_name(self):%0A        return self.__qtd%0A    def get_name(self):%0A        return self.__pre%C3%A7o\n %0A%0A  \n",
+            "lines": "14"
+        },
+        {
+            "label": "2025-11-14_20-25-33",
+            "content": "@@ -191,19 +191,20 @@\n def get_\n-qtd\n+name\n (self):%0A\n@@ -241,21 +241,20 @@\n def get_\n-pre%C3%A7o\n+name\n (self):%0A\n",
+            "lines": "19"
+        },
+        {
+            "label": "2025-11-14_20-26-46",
+            "content": "@@ -47,17 +47,17 @@\n self.__n\n-o\n+a\n me: str \n@@ -141,17 +141,17 @@\n ef get_n\n-o\n+a\n me(self)\n@@ -175,17 +175,17 @@\n self.__n\n-o\n+a\n me%0A    d\n@@ -284,182 +284,8 @@\n re%C3%A7o\n-%0A    def set_name(self):%0A        return self.__nome = nome%0A    def set_qtd(self):%0A        return self.__qtd = qtd%0A    def set_pre%C3%A7o(self):%0A        return self.__pre%C3%A7o = pre%C3%A7o\n %0A%0A  \n@@ -395,44 +395,7 @@\n self\n-, slot: Slot):%0A        self.slot = slot\n+):\n %0A\n",
+            "lines": "19"
+        },
+        {
+            "label": "2025-11-14_20-45-43",
+            "content": "\nclass Slot: \n    def __init__(self):\n        self.__nome: str = \"empty\"\n        self.__qtd: int = 0\n        self.__pre\u00e7o: int = 0.0 \n\n    def get_nome(self):\n        return self.__nome\n    def get_qtd(self):\n        return self.__qtd\n    def get_pre\u00e7o(self):\n        return self.__pre\u00e7o\n    def set_name(self):\n        return self.__nome = nome\n    def set_qtd(self):\n        return self.__qtd = qtd\n    def set_pre\u00e7o(self):\n        return self.__pre\u00e7o = pre\u00e7o\n\n    def __str__(self):\n        return f\"[   empty : 0 U : 0.00 RS]\"\n    \nclass Machine:\n    def __init__(self, slot: Slot):\n        self.slot = slot\n",
+            "lines": "26"
+        }
+    ]
+}
