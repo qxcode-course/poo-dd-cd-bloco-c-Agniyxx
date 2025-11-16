@@ -10,9 +10,8 @@ class Person:
 
 class Market:
     def __init__(self, num_counters: int):
-        self.counters: Person | None = [] 
-        for _ in range(num_counters):
-            self.counters.append(None)
+        self.counters: Person | None = ["-----"] * num_counters
+        
         self.waiting: list[Person]= []
     
     def __str__(self):
@@ -24,8 +23,11 @@ class Market:
         self.waiting.append(person)
 
     def call(self, index: int):
-        if index < 0 or index >= len(self.counters):
+        if index < 0: 
             print("fail: caixa inexistente")
+            return
+        if index >= len(self.counters):
+            print(" ")
             return
         if self.counters[index] is not None:
             print("fail: caixa {index} ocupado")

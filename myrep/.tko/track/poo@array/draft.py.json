@@ -167,8 +167,13 @@
         },
         {
             "label": "2025-11-08_12-51-43",
-            "content": "class Foo:\n    def __init__(self, num: int):\n        self.num = num\n\n    def __str__(self):\n        return self.num\n    \nlista_vazia: list[int] = []\nprint(lista_vazia)\n\nlista_num: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9]\nprint(lista_num)\ntam_lista_num = len(lista_num)\nprint(tam_lista_num)\nlista_num.insert(0, 0)\nprint(lista_num)\n\nn = 10\nnum_aleatorios = list(range(n + 1)) \nprint(num_aleatorios)\n\nfor i in num_aleatorios:\n    range(len(num_aleatorios))\n    print(f\"indice {i} => {num_aleatorios[i]}\")\n\nx = 2\nfor num in num_aleatorios:\n    if num == x:\n        print(num)\n    elif x not in num_aleatorios:\n        print(\"numero n\u00e3o encontrado\")\n\nfor num_pares in num_aleatorios:\n    if num_pares % 2 == 0:\n        print(num_pares)\n\nprint()\nlista = []\nprint(lista)\n\nlista.append('agne')\nprint(lista)\n\nlista.append(8)\nprint(lista)\n\nlista.append('serra')\nprint(lista)\n\ntamanho = len(lista)\nprint(tamanho)\n\nif 8 in lista:\n    lista.remove('agne')\n    print(lista)\n\nlista.pop()\nprint(lista)\n\n\n\n\n",
+            "content": "@@ -724,17 +724,16 @@\n pares)%0A%0A\n-%0A\n print()%0A\n",
             "lines": "62"
+        },
+        {
+            "label": "2025-11-16_05-56-05",
+            "content": "class Foo:\n    def __init__(self, num: int):\n        self.num = num\n\n    def __str__(self):\n        return self.num\n    \nlista_vazia: list[int] = []\nprint(lista_vazia)\n\nlista_num: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9]\nprint(lista_num)\ntam_lista_num = len(lista_num)\nprint(tam_lista_num)\nlista_num.insert(0, 0)\nprint(lista_num)\n\nn = 10\nnum_aleatorios = list(range(n + 1)) \nprint(num_aleatorios)\n\nfor i in num_aleatorios:\n    range(len(num_aleatorios))\n    print(f\"indice {i} => {num_aleatorios[i]}\")\n\nx = 2\nfor num in num_aleatorios:\n    if num == x:\n        print(num)\n    elif x not in num_aleatorios:\n        print(\"numero n\u00e3o encontrado\")\n\nfor num_pares in num_aleatorios:\n    if num_pares % 2 == 0:\n        print(num_pares)\n\n\nprint()\nlista = []\nprint(lista)\n\nlista.append('agne')\nprint(lista)\n\nlista.append(8)\nprint(lista)\n\nlista.append('serra')\nprint(lista)\n\ntamanho = len(lista)\nprint(tamanho)\n\nif 8 in lista:\n    lista.remove('agne')\n    print(lista)\n\nlista.pop()\nprint(lista)\n\n\n\n\n",
+            "lines": "63"
         }
     ]
 }

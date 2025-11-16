@@ -72,8 +72,8 @@ class Lapiseira:
         return f"Calibre: {self.calibre}, bico: {self.bico}, tambor: {self.tambor}"
     
 def main():
+    lapiseira = Lapiseira()
     while True:
-        lapiseira = Lapiseira()
         line = input()
         print(f"${line}")
         args = line.split()

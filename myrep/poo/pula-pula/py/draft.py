@@ -1,3 +1,4 @@
+import heapq
 class Kid:
     def __init__(self, nome: str, idade: int):
         self.__nome = nome
@@ -11,6 +12,9 @@ class Kid:
     
     def __str__(self):
         return f"{self.__nome}:{self.__idade}"
+    
+    def __lt__(self, other):
+        return -self.__idade > -other.__idade
 
 class Trampoline: 
     def __init__(self, counter: int = 0):
@@ -19,13 +23,13 @@ class Trampoline:
         self.counter = counter
 
     def arrive(self, kid: Kid):
-        self.waiting.append(kid)
+        heapq.heappush(self.waiting, kid)
 
     def enter(self):
         if not self.waiting:
             print("fail: ninguem na fila de espera")
             return
-        kid = self.waiting.pop(0)
+        kid = heapq.heappop(self.waiting)
         self.playing.append(kid)
 
     def leave(self):
@@ -33,14 +37,28 @@ class Trampoline:
             print("fail: ninguem no pula-pula")
             return
         kid = self.playing.pop(0)
-        self.waiting.append(kid)
+        heapq.heappush(self.waiting, kid)
 
     def removeKid(self, name: str): 
-        for lista in [self.waiting, self.playing]:
-            for i, kid in enumerate(lista):
-                if kid.get_name() == name:
-                    lista.pop(i)
-                    return     
+        for i, kid in enumerate(self.playing):
+            if kid.get_name() == name:
+                self.playing.pop(i)
+                return
+                
+        temp_list = []
+        found = False
+        
+        for kid in self.waiting:
+            if kid.get_name() == name:
+                found = True
+            else:
+                temp_list.append(kid)
+                
+        if found:
+            self.waiting = temp_list  
+            heapq.heapify(self.waiting)
+            print("ok")
+            return     
         print(f"fail: {name} não encontrado")
     
     def __str__(self):

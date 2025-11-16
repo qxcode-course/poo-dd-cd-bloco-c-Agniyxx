@@ -487,8 +487,38 @@
         },
         {
             "label": "2025-11-15_23-19-08",
-            "content": "class Kid:\n    def __init__(self, nome: str, idade: int):\n        self.__nome = nome\n        self.__idade = idade\n        \n    def get_name(self):\n        return self.__nome\n\n    def get_age(self):\n        return self.__idade\n    \n    def __str__(self):\n        return f\"{self.__nome}:{self.__idade}\"\n\nclass Trampoline: \n    def __init__(self, counter: int = 0):\n        self.playing: list[Kid] = []\n        self.waiting: list[Kid] = []\n        self.counter = counter\n\n    def arrive(self, kid: Kid):\n        self.waiting.append(kid)\n\n    def enter(self):\n        if not self.waiting:\n            print(\"fail: ninguem na fila de espera\")\n            return\n        kid = self.waiting.pop(0)\n        self.playing.append(kid)\n\n    def leave(self):\n        if not self.playing:\n            print(\"fail: ninguem no pula-pula\")\n            return\n        kid = self.playing.pop(0)\n        self.waiting.append(kid)\n\n    def removeKid(self, name: str): \n        for lista in [self.waiting, self.playing]:\n            for i, kid in enumerate(lista):\n                if kid.get_name() == name:\n                    lista.pop(i)\n                    return     \n        print(f\"fail: {name} n\u00e3o encontrado\")\n    \n    def __str__(self):\n        waiting_str = \", \".join(str(kid) for kid in self.waiting)\n        playing_str = \", \".join(str(kid) for kid in self.playing)\n        return f\"[{waiting_str}] => [{playing_str}]\"\n\ndef main():\n    pula_pula = Trampoline(0)\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(pula_pula)\n        elif args[0] == \"arrive\":\n            nome = args[1]\n            idade = int(args[2])\n            pula_pula.arrive(Kid(nome, idade))\n        elif args[0] == \"enter\":\n            pula_pula.enter()\n        elif args[0] ==\"leave\":\n            pula_pula.leave()\n        elif args[0] ==\"remove\":\n            nome = args[1]\n            pula_pula.removeKid(nome)\n\nmain()",
+            "content": "@@ -297,88 +297,8 @@\n de%7D%22\n-%0A    %0A    def __lt__(self, other):%0A        return -self.__idade %3E -other.__idade\n %0A%0Acl\n",
             "lines": "74"
+        },
+        {
+            "label": "2025-11-16_08-25-54",
+            "content": "@@ -1036,90 +1036,31 @@\n for \n-i, kid in enumerate(lista):%0A            if kid.get_name() == name:%0A               \n+lista in %5Bself.waiting,\n  sel\n@@ -1072,15 +1072,10 @@\n ying\n-.pop(i)\n+%5D:\n %0A   \n@@ -1087,385 +1087,124 @@\n     \n-    return%0A                %0A        temp_list = %5B%5D%0A        found = False%0A        %0A        for kid in self.waiting:%0A            if kid.get_name() == name:%0A                found = True%0A            else:%0A                temp_list.append(kid)%0A                %0A        if found:%0A            self.waiting = temp_list  %0A            heapq.heapify(self.waiting)%0A            print(%22ok%22)%0A\n+for i, kid in enumerate(lista):%0A                if kid.get_name() == name:%0A                    lista.pop(i)%0A        \n     \n",
+            "lines": "77"
+        },
+        {
+            "label": "2025-11-16_08-29-05",
+            "content": "@@ -1,17 +1,4 @@\n-import heapq%0A\n clas\n@@ -1052,28 +1052,21 @@\n umerate(\n-self.playing\n+lista\n ):%0A     \n",
+            "lines": "91"
+        },
+        {
+            "label": "2025-11-16_08-31-24",
+            "content": "@@ -974,23 +974,8 @@\n     \n-heapq.heappush(\n self\n@@ -982,18 +982,24 @@\n .waiting\n-, \n+.append(\n kid)%0A%0A  \n",
+            "lines": "92"
+        },
+        {
+            "label": "2025-11-16_08-34-10",
+            "content": "@@ -761,22 +761,8 @@\n d = \n-heapq.heappop(\n self\n@@ -761,32 +761,38 @@\n d = self.waiting\n+.pop(0\n )%0A        self.p\n@@ -810,24 +810,16 @@\n nd(kid)%0A\n-        \n %0A    def\n",
+            "lines": "92"
+        },
+        {
+            "label": "2025-11-16_08-34-45",
+            "content": "@@ -591,39 +591,24 @@\n d):%0A        \n-heapq.heappush(\n self.waiting\n@@ -599,34 +599,40 @@\n     self.waiting\n-, \n+.append(\n kid)%0A%0A    def en\n@@ -810,32 +810,40 @@\n ing.append(kid)%0A\n+        \n %0A    def leave(s\n",
+            "lines": "92"
+        },
+        {
+            "label": "2025-11-16_08-37-40",
+            "content": "import heapq\nclass Kid:\n    def __init__(self, nome: str, idade: int):\n        self.__nome = nome\n        self.__idade = idade\n        \n    def get_name(self):\n        return self.__nome\n\n    def get_age(self):\n        return self.__idade\n    \n    def __str__(self):\n        return f\"{self.__nome}:{self.__idade}\"\n    \n    def __lt__(self, other):\n        return -self.__idade > -other.__idade\n\nclass Trampoline: \n    def __init__(self, counter: int = 0):\n        self.playing: list[Kid] = []\n        self.waiting: list[Kid] = []\n        self.counter = counter\n\n    def arrive(self, kid: Kid):\n        heapq.heappush(self.waiting, kid)\n\n    def enter(self):\n        if not self.waiting:\n            print(\"fail: ninguem na fila de espera\")\n            return\n        kid = heapq.heappop(self.waiting)\n        self.playing.append(kid)\n\n    def leave(self):\n        if not self.playing:\n            print(\"fail: ninguem no pula-pula\")\n            return\n        kid = self.playing.pop(0)\n        heapq.heappush(self.waiting, kid)\n\n    def removeKid(self, name: str): \n        for i, kid in enumerate(self.playing):\n            if kid.get_name() == name:\n                self.playing.pop(i)\n                return\n                \n        temp_list = []\n        found = False\n        \n        for kid in self.waiting:\n            if kid.get_name() == name:\n                found = True\n            else:\n                temp_list.append(kid)\n                \n        if found:\n            self.waiting = temp_list  \n            heapq.heapify(self.waiting)\n            print(\"ok\")\n            return     \n        print(f\"fail: {name} n\u00e3o encontrado\")\n    \n    def __str__(self):\n        waiting_str = \", \".join(str(kid) for kid in self.waiting)\n        playing_str = \", \".join(str(kid) for kid in self.playing)\n        return f\"[{waiting_str}] => [{playing_str}]\"\n\ndef main():\n    pula_pula = Trampoline(0)\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(pula_pula)\n        elif args[0] == \"arrive\":\n            nome = args[1]\n            idade = int(args[2])\n            pula_pula.arrive(Kid(nome, idade))\n        elif args[0] == \"enter\":\n            pula_pula.enter()\n        elif args[0] ==\"leave\":\n            pula_pula.leave()\n        elif args[0] ==\"remove\":\n            nome = args[1]\n            pula_pula.removeKid(nome)\n\nmain()",
+            "lines": "92"
         }
     ]
 }

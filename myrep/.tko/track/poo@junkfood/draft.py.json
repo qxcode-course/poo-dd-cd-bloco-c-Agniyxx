@@ -47,8 +47,43 @@
         },
         {
             "label": "2025-11-15_14-46-40",
-            "content": "\nclass Slot: \n    def __init__(self):\n        self.__nome: str = \"empty\"\n        self.__qtd: int = 0\n        self.__pre\u00e7o: int = 0.0 \n\n    def get_nome(self):\n        return self.__nome\n    def get_qtd(self):\n        return self.__qtd\n    def get_pre\u00e7o(self):\n        return self.__pre\u00e7o\n\n    def __str__(self):\n        return f\"{self.__nome}:{self.__qtd}:{self.__pre\u00e7o}:\"\n    \nclass Machine:\n    def __init__(self, slot: Slot): #cada espiral \u00e9 um array\n        self.slot = slot\n        \n  \n    def __str__(self):\n        return f\"[   empty : 0 U : 0.00 RS]\" \n\ndef main():\n    slot = Slot()\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split\n\n        if args[0] ==\"end\":\n            break\n        if args[0] ==\"show\":\n            print(slot)\n        if args[0] ==\"init\":\n            nome = args[1]\n            qtd = args[2]\n            pre\u00e7o = args[3]\n            slot = Slot(nome, qtd, pre\u00e7o)",
+            "content": "@@ -1,12 +1,13 @@\n+%0A\n class Slot: \n@@ -450,9 +450,8 @@\n rray\n-?\n %0A   \n@@ -853,20 +853,15 @@\n d = \n-int(\n args%5B2%5D\n-)\n %0A   \n@@ -881,20 +881,15 @@\n o = \n-int(\n args%5B3%5D\n-)\n %0A   \n",
             "lines": "41"
+        },
+        {
+            "label": "2025-11-16_06-06-25",
+            "content": "@@ -940,12 +940,4 @@\n e%C3%A7o)\n-%0A%0Amain()\n",
+            "lines": "40"
+        },
+        {
+            "label": "2025-11-16_06-06-53",
+            "content": "@@ -31,51 +31,8 @@\n self\n-, nome: str, qtd: int = 0, pre%C3%A7o: int = 0.0\n ):%0A \n@@ -53,15 +53,23 @@\n nome\n- = nome\n+: str = %22empty%22\n %0A   \n@@ -87,14 +87,17 @@\n _qtd\n- = qtd\n+: int = 0\n %0A   \n@@ -117,16 +117,20 @@\n re%C3%A7o\n- = pre%C3%A7o\n+: int = 0.0 \n %0A%0A  \n@@ -365,12 +365,8 @@\n re%C3%A7o\n-:.2f\n %7D:%22%0A\n",
+            "lines": "42"
+        },
+        {
+            "label": "2025-11-16_06-11-47",
+            "content": "@@ -42,18 +42,8 @@\n  str\n- = %22empty%22\n , qt\n@@ -65,12 +65,10 @@\n %C3%A7o: \n-floa\n+in\n t = \n@@ -155,16 +155,170 @@\n  pre%C3%A7o%0A%0A\n+    def get_nome(self):%0A        return self.__nome%0A    def get_qtd(self):%0A        return self.__qtd%0A    def get_pre%C3%A7o(self):%0A        return self.__pre%C3%A7o%0A%0A\n     def \n@@ -394,19 +394,17 @@\n e%C3%A7o:.2f%7D\n- RS\n+:\n %22%0A    %0Ac\n@@ -457,93 +457,58 @@\n t): \n-%0A        self.slot = %5BSlot for _ in range(slot)%5D%0A        self.dinheiro_inserido = 0.0\n+#cada espiral %C3%A9 um array?%0A        self.slot = slot\n %0A   \n@@ -539,17 +539,16 @@\n (self):%0A\n-%0A\n         \n@@ -972,33 +972,8 @@\n e%C3%A7o)\n-%0A        if args%5B0%5D == %22%22\n %0A%0Ama\n",
+            "lines": "42"
+        },
+        {
+            "label": "2025-11-16_06-26-56",
+            "content": "@@ -304,17 +304,16 @@\n lf, slot\n-s\n : Slot):\n@@ -331,17 +331,16 @@\n elf.slot\n-s\n  = %5BSlot\n@@ -359,17 +359,16 @@\n nge(slot\n-s\n )%5D%0A     \n",
+            "lines": "38"
+        },
+        {
+            "label": "2025-11-16_06-33-04",
+            "content": "@@ -304,25 +304,19 @@\n lf, \n-capacity: int = 0\n+slots: Slot\n ): %0A\n@@ -406,41 +406,8 @@\n 0.0%0A\n-        self.capacity = capacity%0A\n     \n@@ -407,24 +407,27 @@\n .0%0A        %0A\n+  %0A\n     def __st\n@@ -441,281 +441,9 @@\n f):%0A\n-        for i, produto in enumerate(self.slots):%0A            nome_str = %22 : %22.join(str(i) if i is not None else %22empty%22 for i in self.slots)%0A            qtd_str = %22 : %22.join(str(i) for i in self.waiting)%0A            pre%C3%A7o_str = %22 : %22.join(str(i) for i in self.waiting)%0A    \n+%0A\n     \n@@ -459,518 +459,36 @@\n n f%22\n-%7Bi%7D\n %5B   \n-%7Bnome_str%7D%7Bqtd_str%7D%7Bpre%C3%A7o_str%7D RS%5D%22 %0A    %0A    def setSlot(self, index: int, nome: str, qtd: int = 0, pre%C3%A7o: float = 0.0):%0A%0A        self.slots%5Bindex%5D = Slot(nome, qtd, pre%C3%A7o)%0A%0A    def clearSlots(self, index: int):%0A        if not index %3C= 0 or index %3C len(self.slots):%0A            print(%22fail: indice invalido%22)%0A            return%0A        self.slots%5Bindex%5D = Slot()%0A%0A    def insertCash(self):%0A%0A    def withdrawCash(self):%0A%0A    def getCash(self):%0A%0A    def Profit(self):%0A%0A    def buyItem(self, index: int):%0A\n+empty : 0 U : 0.00 RS%5D%22 \n %0A%0Ade\n@@ -739,68 +739,8 @@\n t%22:%0A\n-            qtd = int(args%5B2%5D)%0A        if args%5B0%5D == %22set%22:%0A\n     \n@@ -867,16 +867,41 @@\n , pre%C3%A7o)\n+%0A        if args%5B0%5D == %22%22\n %0A%0Amain()\n",
+            "lines": "38"
+        },
+        {
+            "label": "2025-11-16_07-20-05",
+            "content": "@@ -303,20 +303,8 @@\n elf,\n- slots: int,\n  cap\n@@ -668,19 +668,23 @@\n in self.\n-qtd\n+waiting\n )%0A      \n@@ -733,21 +733,23 @@\n in self.\n-pre%C3%A7o\n+waiting\n )%0A      \n",
+            "lines": "63"
+        },
+        {
+            "label": "2025-11-16_07-23-15",
+            "content": "class Slot: \n    def __init__(self, nome: str = \"empty\", qtd: int = 0, pre\u00e7o: float = 0.0):\n        self.__nome = nome\n        self.__qtd = qtd\n        self.__pre\u00e7o = pre\u00e7o\n\n    def __str__(self):\n        return f\"{self.__nome}:{self.__qtd}:{self.__pre\u00e7o:.2f} RS\"\n    \nclass Machine:\n    def __init__(self, slots: int, capacity: int = 0): \n        self.slots = [Slot for _ in range(slots)]\n        self.dinheiro_inserido = 0.0\n        self.capacity = capacity\n        \n    def __str__(self):\n        for i, produto in enumerate(self.slots):\n            nome_str = \" : \".join(str(i) if i is not None else \"empty\" for i in self.slots)\n            qtd_str = \" : \".join(str(i) for i in self.qtd)\n            pre\u00e7o_str = \" : \".join(str(i) for i in self.pre\u00e7o)\n            return f\"{i}[   {nome_str}{qtd_str}{pre\u00e7o_str} RS]\" \n    \n    def setSlot(self, index: int, nome: str, qtd: int = 0, pre\u00e7o: float = 0.0):\n\n        self.slots[index] = Slot(nome, qtd, pre\u00e7o)\n\n    def clearSlots(self, index: int):\n        if not index <= 0 or index < len(self.slots):\n            print(\"fail: indice invalido\")\n            return\n        self.slots[index] = Slot()\n\n    def insertCash(self):\n\n    def withdrawCash(self):\n\n    def getCash(self):\n\n    def Profit(self):\n\n    def buyItem(self, index: int):\n\n\ndef main():\n    slot = Slot()\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split\n\n        if args[0] ==\"end\":\n            break\n        if args[0] ==\"show\":\n            print(slot)\n        if args[0] ==\"init\":\n            qtd = int(args[2])\n        if args[0] == \"set\":\n            nome = args[1]\n            qtd = int(args[2])\n            pre\u00e7o = int(args[3])\n            slot = Slot(nome, qtd, pre\u00e7o)\n\nmain()",
+            "lines": "63"
         }
     ]
 }

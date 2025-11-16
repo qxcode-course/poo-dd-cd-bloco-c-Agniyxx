@@ -19,27 +19,30 @@ class Theater:
         self.seats: list[Client] = [None] * capacity
 
     def __search__(self, client_id: str):
-        for i, client_ in enumerate (self.seats):
-            if client_ is not None and client_.get_id() == client_id:
+        for i, client in enumerate (self.seats):
+            if client is not None and client.getId() == client_id:
                 return i
         return -1
         
     def reserve(self, id: str, phone: int, index: int):
-        if index < 0 or index >= self.capacity:
-            print("fail: assento inessistente")
+        if index < 0:
+            print("fail: cadeira inessistente")
+            return
+        if index >= self.capacity:
+            print("fail: cadeira nao existe")
             return
         if self.seats[index] is not None:
-            print("fail: cadeira ocupada")
+            print("fail: cadeira ja esta ocupada")
             return
         if self.__search__(id) != -1:
-            print("fail: cliente ja esta reservado")
+            print("fail: cliente ja esta no cinema")
             return
         self.seats[index] = Client(id, phone)
 
-    def cancel(self, client_id: str):
-        index = self.__search__(client_id)
+    def cancel(self, client: str):
+        index = self.__search__(client)
         if index == -1:
-            print("fail: clite não esta no cinema")
+            print("fail: cliente nao esta no cinema")
             return
         self.seats[index] = None
 
@@ -65,13 +68,13 @@ def main():
             capacity = int(args[1])
             cinema = Theater(capacity)
         elif args[0] == "reserve":
-            client_id = args[1]
+            client = args[1]
             phone = int(args[2])
             index = int(args[3])
-            cinema.reserve(client_id, phone, index)
+            cinema.reserve(client, phone, index)
         elif args[0] == "cancel":
-            client_id = args[1]
-            cinema.cancel(client_id)
+            client = args[1]
+            cinema.cancel(client)
 
 
 main()
