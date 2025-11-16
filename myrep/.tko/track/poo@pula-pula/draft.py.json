@@ -462,8 +462,33 @@
         },
         {
             "label": "2025-11-15_12-54-04",
-            "content": "class Kid:\n    def __init__(self, nome: str, idade: int):\n        self.__nome = nome\n        self.__idade = idade\n        \n    def get_name(self):\n        return self.__nome\n\n    def get_age(self):\n        return self.__idade\n    \n    def __str__(self):\n        return f\"{self.__nome}:{self.__idade}\"\n\nclass Trampoline: \n    def __init__(self, counter: int = 0):\n        self.playing: list[Kid] = []\n        self.waiting: list[Kid] = []\n        self.counter = counter\n\n    def arrive(self, kid: Kid):\n        self.waiting.append(kid)\n\n    def enter(self):\n        if not self.waiting:\n            print(\"fail: ninguem na fila de espera\")\n            return\n        kid = self.waiting.pop(0)\n        self.playing.append(kid)\n\n    def leave(self):\n        if not self.playing:\n            print(\"fail: ninguem no pula-pula\")\n            return\n        kid = self.playing.pop(0)\n        self.waiting.append(kid)\n\n\n    def removeKid(self, name: str): \n        for lista in [self.waiting, self.playing]:\n            for i, kid in enumerate(lista):\n                if kid.get_name() == name:\n                    lista.pop(i)\n                    return     \n        print(f\"fail: {name} n\u00e3o encontrado\")\n    \n    def __str__(self):\n        waiting_str = \", \".join(str(kid) for kid in self.waiting)\n        playing_str = \", \".join(str(kid) for kid in self.playing)\n        return f\"[{waiting_str}] => [{playing_str}]\"\n\ndef main():\n    pula_pula = Trampoline(0)\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(pula_pula)\n        elif args[0] == \"arrive\":\n            nome = args[1]\n            idade = int(args[2])\n            pula_pula.arrive(Kid(nome, idade))\n        elif args[0] == \"enter\":\n            pula_pula.enter()\n        elif args[0] ==\"leave\":\n            pula_pula.leave()\n        elif args[0] ==\"remove\":\n            nome = args[1]\n            pula_pula.removeKid(nome)\n\nmain()",
+            "content": "@@ -895,32 +895,33 @@\n ng.append(kid)%0A%0A\n+%0A\n     def removeKi\n",
             "lines": "75"
+        },
+        {
+            "label": "2025-11-15_23-04-34",
+            "content": "@@ -515,19 +515,22 @@\n waiting.\n-pop\n+append\n (kid)%0A%0A \n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-15_23-05-11",
+            "content": "@@ -507,38 +507,35 @@\n    self.waiting.\n-append\n+pop\n (kid)%0A%0A    def e\n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-15_23-05-21",
+            "content": "@@ -890,19 +890,22 @@\n waiting.\n-pop\n+append\n (kid)%0A%0A \n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-15_23-05-38",
+            "content": "@@ -882,38 +882,35 @@\n    self.waiting.\n-append\n+pop\n (kid)%0A%0A    def r\n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-15_23-19-08",
+            "content": "class Kid:\n    def __init__(self, nome: str, idade: int):\n        self.__nome = nome\n        self.__idade = idade\n        \n    def get_name(self):\n        return self.__nome\n\n    def get_age(self):\n        return self.__idade\n    \n    def __str__(self):\n        return f\"{self.__nome}:{self.__idade}\"\n\nclass Trampoline: \n    def __init__(self, counter: int = 0):\n        self.playing: list[Kid] = []\n        self.waiting: list[Kid] = []\n        self.counter = counter\n\n    def arrive(self, kid: Kid):\n        self.waiting.append(kid)\n\n    def enter(self):\n        if not self.waiting:\n            print(\"fail: ninguem na fila de espera\")\n            return\n        kid = self.waiting.pop(0)\n        self.playing.append(kid)\n\n    def leave(self):\n        if not self.playing:\n            print(\"fail: ninguem no pula-pula\")\n            return\n        kid = self.playing.pop(0)\n        self.waiting.append(kid)\n\n    def removeKid(self, name: str): \n        for lista in [self.waiting, self.playing]:\n            for i, kid in enumerate(lista):\n                if kid.get_name() == name:\n                    lista.pop(i)\n                    return     \n        print(f\"fail: {name} n\u00e3o encontrado\")\n    \n    def __str__(self):\n        waiting_str = \", \".join(str(kid) for kid in self.waiting)\n        playing_str = \", \".join(str(kid) for kid in self.playing)\n        return f\"[{waiting_str}] => [{playing_str}]\"\n\ndef main():\n    pula_pula = Trampoline(0)\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(pula_pula)\n        elif args[0] == \"arrive\":\n            nome = args[1]\n            idade = int(args[2])\n            pula_pula.arrive(Kid(nome, idade))\n        elif args[0] == \"enter\":\n            pula_pula.enter()\n        elif args[0] ==\"leave\":\n            pula_pula.leave()\n        elif args[0] ==\"remove\":\n            nome = args[1]\n            pula_pula.removeKid(nome)\n\nmain()",
+            "lines": "74"
         }
     ]
 }

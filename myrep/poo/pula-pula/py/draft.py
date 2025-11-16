@@ -35,7 +35,6 @@ class Trampoline:
         kid = self.playing.pop(0)
         self.waiting.append(kid)
 
-
     def removeKid(self, name: str): 
         for lista in [self.waiting, self.playing]:
             for i, kid in enumerate(lista):

@@ -24,7 +24,7 @@ class Lapiseira:
         self.bico = []
 
     def inserir(self, grafite: Grafite):
-        if self.get_grafite() != self.get_calibre():
+        if self.get_grafite() != self.calibre():
             print("fail: calibre incompativel")
         self.tambor.append(grafite)
 
@@ -84,9 +84,9 @@ def main():
             print(lapiseira)
         elif args[0] == "init":
             calibre = args[1]
-            bico = args[2]
-            tambor = args[3]
-            lapiseira = Lapiseira(calibre, bico, tambor)
+            tambor = args[2]
+            bico = args[3]
+            lapiseira = Lapiseira(calibre, tambor, bico)
         elif args[0] == "insert":
             lapiseira.inserir()
         elif args[0] == "remove":
@@ -95,6 +95,5 @@ def main():
             lapiseira.escrever_folha()
         elif args[0] == "pull":
             lapiseira.pull()
-
         
 main()
