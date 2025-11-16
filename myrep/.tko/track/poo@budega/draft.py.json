@@ -147,8 +147,113 @@
         },
         {
             "label": "2025-11-15_14-27-29",
-            "content": "class Person:\n    def __init__(self, name: str):\n        self.__name = name\n\n    def get_name(self):\n        return self.__name\n\n    def __str__(self):\n        return f\"{self.__name}\"\n\nclass Market:\n    def __init__(self, num_counters: int):\n        self.counters: Person | None = [] \n        for _ in range(num_counters):\n            self.counters = None\n        self.waiting: Person |None = []\n    \n    def __str__(self):\n        counters_str = \", \".join(str(i) if i is None else \"vazio\" for i in self.counters)\n        waiting_str = \", \".join(str(i) for i in self.waiting)\n        return f\"Caixas: [{counters_str}]\\Espera: [{waiting_str}]\"\n    \n    def arrive(self, person: Person):\n        self.counters.append(self.waiting)\n\n    def call(self, index: int):\n        if self.counters is None:\n            print(\"fail: niguem no caixa\")\n            return\n        if self.waiting is None:\n            print(\"fail: sem cliente\")\n            return\n        else:\n            print(\"fail: caixa ocupado\")\n\n    def finish(self, index: int):\n        if index < 0 or index >= len(self.counters):\n            print(\"fail: caixa inexistente\")\n            return\n        if self.counters[index] is not None:\n            print(\"fail: caixa vazio\")\n            return\n        if not self.waiting:\n            print(\"fail: sem clientes na fila de espera\")\n        client = self.waiting.pop(0)\n        self.counters[index] = client\n        print(f\"ok: {client.get_name()} foi para o caixa {index}\")\n\ndef main():\n    mercado = Market(0)\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(mercado)\n        if args[0] == \"init\":\n            counters = args[1]\n            waiting = args[2]\n            mercado = Market(counters, waiting)\n            \nmain()\n\n#.append() cria  a lista \n#join contrariio do split \n",
+            "content": "@@ -708,22 +708,28 @@\n .append(\n-person\n+self.waiting\n )%0A%0A    d\n",
             "lines": "68"
+        },
+        {
+            "label": "2025-11-15_20-05-19",
+            "content": "@@ -760,29 +760,16 @@\n      if \n-index %3E= len(\n self.cou\n@@ -765,33 +765,40 @@\n if self.counters\n-)\n+ is None\n :%0A            pr\n@@ -808,33 +808,31 @@\n (%22fail: \n-caixa inexistente\n+niguem no caixa\n %22)%0A     \n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-15_20-10-28",
+            "content": "@@ -762,37 +762,24 @@\n    if index \n-%3C 0 or index \n %3E= len(self.\n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-15_20-15-41",
+            "content": "@@ -878,39 +878,31 @@\n     if self.\n-counters%5Bindex%5D\n+waiting\n  is None:%0A  \n@@ -928,29 +928,19 @@\n il: \n-caixa %7Bindex%7D ocupado\n+sem cliente\n %22)%0A \n@@ -1000,37 +1000,21 @@\n il: \n-sem cliente na fila de espera\n+caixa ocupado\n %22)%0A%0A\n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-15_20-18-42",
+            "content": "@@ -1051,56 +1051,8 @@\n %22)%0A%0A\n-            %0A    cliente = self.waiting.pop(0)%0A%0A\n     \n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-15_20-23-20",
+            "content": "@@ -1043,24 +1043,72 @@\n e espera%22)%0A%0A\n+            %0A    cliente = self.waiting.pop(0)%0A%0A\n     def fini\n@@ -1428,33 +1428,32 @@\n ila de espera%22)%0A\n-%0A\n         client =\n@@ -1510,16 +1510,83 @@\n = client\n+%0A        print(f%22ok: %7Bclient.get_name()%7D foi para o caixa %7Bindex%7D%22)\n %0A%0Adef ma\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-11-15_20-29-22",
+            "content": "@@ -611,17 +611,16 @@\n s_str%7D%5D%5C\n-n\n Espera: \n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-15_20-32-11",
+            "content": "@@ -1,2022 +1,60 @@\n-class Person:%0A    def __init__(self, name: str):%0A        self.__name = name%0A%0A    def get_name(self):%0A        return self.__name%0A%0A    def __str__(self):%0A        return f%22%7Bself.__name%7D%22%0A%0Aclass Market:%0A    def __init__(self, num_counters: int):%0A        self.counters: Person %7C None = %5B%5D %0A        for _ in range(num_counters):%0A            self.counters.append(None)%0A        self.waiting: Person %7CNone = %5B%5D%0A    %0A    def __str__(self):%0A        counters_str = %22, %22.join(str(i) if i is None else %22vazio%22 for i in self.counters)%0A        waiting_str = %22, %22.join(str(i) for i in self.waiting)%0A        return f%22Caixas: %5B%7Bcounters_str%7D%5D%5CnEspera: %5B%7Bwaiting_str%7D%5D%22%0A    %0A    def arrive(self, person: Person):%0A        self.counters.append(person)%0A%0A    def call(self, index: int):%0A        if index %3C 0 or index %3E= len(self.counters):%0A            print(%22fail: caixa inexistente%22)%0A            return%0A        if self.counters%5Bindex%5D is None:%0A            print(%22fail: caixa %7Bindex%7D ocupado%22)%0A            return%0A        else:%0A            print(%22fail: sem cliente na fila de espera%22)%0A%0A    def finish(self, index: int):%0A        if index %3C 0 or index %3E= len(self.counters):%0A            print(%22fail: caixa inexistente%22)%0A            return%0A        if self.counters%5Bindex%5D is not None:%0A            print(%22fail: caixa vazio%22)%0A            return%0A        if not self.waiting:%0A            print(%22fail: sem clientes na fila de espera%22)%0A%0A        client = self.waiting.pop(0)%0A        self.counters%5Bindex%5D = client%0A%0Adef main():%0A    mercado = Market(0)%0A    while True:%0A        line = input()%0A        print(f%22$%7Bline%7D%22)%0A        args = line.split()%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22show%22:%0A            print(mercado)%0A        if args%5B0%5D == %22init%22:%0A            counters = args%5B1%5D%0A            waiting = args%5B2%5D%0A            mercado = Market(counters, waiting)%0A        elif args%5B0%5D == %22finish%22:%0A            index = args%5B1%5D%0A            mercado.finish(index)%0A            %0Amain()%0A%0A#.append() cria  a lista %0A#join contrariio do split\n+@@ -345,21 +345,15 @@%0A ters%0A-.append(%0A+ = %0A None%0A-)%0A %250A  \n  %0A\n",
+            "lines": "7"
+        },
+        {
+            "label": "2025-11-15_20-37-36",
+            "content": "@@ -1748,20 +1748,16 @@\n         \n-num_\n counters\n@@ -1758,17 +1758,16 @@\n unters =\n- \n  args%5B1%5D\n@@ -1783,95 +1783,23 @@\n     \n-mercado = Market(num_counters)%0A        if args%5B0%5D == %22arrive%22:%0A            name\n+waiting\n  = args%5B\n 1%5D%0A \n@@ -1786,33 +1786,33 @@\n  waiting = args%5B\n-1\n+2\n %5D%0A            me\n@@ -1820,118 +1820,35 @@\n cado\n-.arrive(Person(name))%0A        if args%5B0%5D == %22call%22:%0A            index = args%5B1%5D%0A            mercado.call(index\n+ = Market(counters, waiting\n )%0A  \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-11-15_20-44-39",
+            "content": "@@ -1767,20 +1767,16 @@\n s = \n-int(\n+ \n args%5B1%5D\n-)\n %0A   \n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-11-15_20-45-38",
+            "content": "@@ -486,13 +486,13 @@\n se %22\n------\n+vazio\n %22 fo\n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-11-15_20-46-26",
+            "content": "@@ -451,13 +451,8 @@\n  = %22\n------\n , %22.\n@@ -482,21 +482,21 @@\n e else %22\n-vazio\n+-----\n %22 for i \n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-11-15_20-47-24",
+            "content": "@@ -533,37 +533,32 @@\n  waiting_str = %22\n------\n , %22.join(str(i) \n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-11-15_20-48-14",
+            "content": "@@ -439,32 +439,37 @@\n counters_str = %22\n+-----\n , %22.join(str(i) \n@@ -487,21 +487,21 @@\n e else %22\n------\n+vazio\n %22 for i \n@@ -541,16 +541,21 @@\n _str = %22\n+-----\n , %22.join\n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-11-15_20-52-04",
+            "content": "@@ -381,20 +381,21 @@\n ng: \n-list%5B\n Person\n-%5D\n+ %7CNone \n = %5B%5D\n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-11-15_20-58-27",
+            "content": "@@ -466,28 +466,24 @@\n (i) if i is \n-not \n None else %22-\n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-11-15_21-01-15",
+            "content": "@@ -702,23 +702,24 @@\n    self.\n-waiting\n+counters\n .append(\n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-11-15_21-02-07",
+            "content": "@@ -906,34 +906,30 @@\n s%5Bindex%5D is \n-not \n None:%0A\n+\n             \n@@ -992,35 +992,20 @@\n         \n-if not self.waiting\n+else\n :%0A      \n@@ -1054,35 +1054,16 @@\n espera%22)\n-%0A            return\n %0A%0A    de\n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-11-15_21-12-58",
+            "content": "@@ -1096,83 +1096,8 @@\n turn\n-%0A        client = self.waiting.pop(0)%0A        self.counters%5Bindex%5D = client\n %0A%0A  \n@@ -1436,16 +1436,53 @@\n pera%22)%0A%0A\n+        client = self.waiting.pop(0)%0A\n         \n@@ -1504,20 +1504,22 @@\n ndex%5D = \n-None\n+client\n %0A%0Adef ma\n@@ -2167,16 +2167,40 @@\n ain()%0A%0A#\n+.append() cria  a lista \n %0A#join c\n",
+            "lines": "77"
+        },
+        {
+            "label": "2025-11-15_21-16-41",
+            "content": "@@ -1332,22 +1332,10 @@\n     \n-person_leave =\n+if\n  sel\n@@ -1355,81 +1355,168 @@\n dex%5D\n-%0A        if person_leave is None:%0A            print(%22fail: caixa vazuo\n+ is not None:%0A            print(%22fail: caixa vazio%22)%0A            return%0A        if not self.waiting:%0A            print(%22fail: sem clientes na fila de espera\n %22)%0A\n+%0A\n     \n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_21-20-40",
+            "content": "@@ -1436,35 +1436,16 @@\n vazuo%22)%0A\n-            return%0A\n         \n",
+            "lines": "75"
+        },
+        {
+            "label": "2025-11-15_21-21-06",
+            "content": "class Person:\n    def __init__(self, name: str):\n        self.__name = name\n\n    def get_name(self):\n        return self.__name\n\n    def __str__(self):\n        return f\"{self.__name}\"\n\nclass Market:\n    def __init__(self, num_counters: int):\n        self.counters: Person | None = [] \n        for _ in range(num_counters):\n            self.counters.append(None)\n        self.waiting: list[Person]= []\n    \n    def __str__(self):\n        counters_str = \", \".join(str(i) if i is not None else \"-----\" for i in self.counters)\n        waiting_str = \", \".join(str(i) for i in self.waiting)\n        return f\"Caixas: [{counters_str}]\\nEspera: [{waiting_str}]\"\n    \n    def arrive(self, person: Person):\n        self.waiting.append(person)\n\n    def call(self, index: int):\n        if index < 0 or index >= len(self.counters):\n            print(\"fail: caixa inexistente\")\n            return\n        if self.counters[index] is not None:\n            print(\"fail: caixa {index} ocupado\")\n            return\n        if not self.waiting:\n            print(\"fail: sem cliente na fila de espera\")\n            return\n        client = self.waiting.pop(0)\n        self.counters[index] = client\n\n    def finish(self, index: int):\n        if index < 0 or index >= len(self.counters):\n            print(\"fail: caixa inexistente\")\n            return\n        person_leave = self.counters[index]\n        if person_leave is None:\n            print(\"fail: caixa vazuo\")\n            return\n        self.counters[index] = None\n\ndef main():\n    mercado = Market(0)\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(mercado)\n        if args[0] == \"init\":\n            num_counters = int(args[1])\n            mercado = Market(num_counters)\n        if args[0] == \"arrive\":\n            name = args[1]\n            mercado.arrive(Person(name))\n        if args[0] == \"call\":\n            index = args[1]\n            mercado.call(index)\n        elif args[0] == \"finish\":\n            index = args[1]\n            mercado.finish(index)\n            \nmain()\n\n#\n#join contrariio do split \n",
+            "lines": "76"
         }
     ]
 }

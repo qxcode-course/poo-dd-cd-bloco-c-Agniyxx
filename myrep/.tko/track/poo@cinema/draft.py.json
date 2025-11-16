@@ -142,8 +142,103 @@
         },
         {
             "label": "2025-11-15_14-06-31",
-            "content": "class Client:\n    def __init__(self, id: str, phone: int):\n        self.__id = id\n        self.__id = phone\n\n    def getPhone(self):\n        return self.__phone\n    def setPhone(self, phone: int):\n        self.__phone = phone\n    def getId(self):\n        return self.__id\n\n    def __str__(self):\n        return f\"{self.__id}:{self.__phone}\"\n        \nclass Theater:\n    def __init__(self, capacity: int = 0):\n        self.capacity = capacity\n        self.seats: list[Client] = [] * capacity\n\n    def __search__(self, nome: str):\n        for i, in range (len(Client)) (self.seats, start=1):\n            if Client is not None and Client.get_id() == nome:\n                return i\n            return -1\n        \n    def __verifyIdex__(self, index: int):\n        if index < 0:\n            raise ValueError\n\n    def reserve(self, id: str, phone: int, index: int):\n        if self.seats[index] != None:\n            print(\"fail: cadeira ocupada\")\n            return\n        if self.__search__(id) != -1:\n            raise ValueError\n        self.seats[index] = Client(id, phone)\n\n    def cancel(self, id: str):\n        self.__search__(id)\n\n    def getSeats(self):\n        return self.seats\n\n    def __str__(self):\n        return f\"[]\"\n\ndef main():\n    cinema = Theater()\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(cinema)\n        elif args[0] == \"init\":\n            id = args[1]\n            phone = args[2]\n            cinema = Theater(id, phone)\n        elif args[0] == \"reserve\":\n            cinema.reserve()\n        elif args[0] == \"cancel\":\n            cinema.cancel()\n\nmain()",
+            "content": "@@ -82,37 +82,34 @@\n %0A        self.__\n-phone\n+id\n  = phone%0A%0A    de\n",
             "lines": "68"
+        },
+        {
+            "label": "2025-11-15_21-27-45",
+            "content": "@@ -473,20 +473,16 @@\n ent%5D = %5B\n-None\n %5D * capa\n@@ -512,22 +512,20 @@\n _(self, \n-client\n+nome\n : str):%0A\n@@ -543,27 +543,30 @@\n  i, \n-client in enumerate\n+in range (len(Client))\n  (se\n@@ -573,16 +573,25 @@\n lf.seats\n+, start=1\n ):%0A     \n@@ -600,17 +600,17 @@\n      if \n-c\n+C\n lient is\n@@ -642,22 +642,20 @@\n id() == \n-client\n+nome\n :%0A      \n@@ -677,24 +677,28 @@\n n i%0A        \n+    \n return -1%0A  \n@@ -925,24 +925,16 @@\n cadeira \n-ja esta \n ocupada%22\n@@ -1024,42 +1024,8 @@\n rror\n- %22fail: cliente ja esta no cinema%22\n %0A   \n@@ -1206,164 +1206,8 @@\n f):%0A\n-        capacity_str = %22, %22.join(str(i) if i is not None else %22- - - - -%22 for i in self.capacity)%0A        seats_str = %22, %22.join(str(i) for i in self.seats)%0A\n     \n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-11-15_21-47-34",
+            "content": "@@ -762,313 +762,39 @@\n  %3C 0\n- or index %3E= self.capacity:%0A            print(%22fail: assento inessistente%22)%0A            return%0A        if self.seats%5Bindex%5D is not None:%0A            print(%22fail: cadeira ocupada%22)%0A            return%0A        if self.__search__(index) != -1:%0A            print(%22fail: cliente ja esta reservado%22)%0A            \n+:%0A            raise ValueError%0A\n %0A   \n@@ -996,38 +996,49 @@\n -1:%0A            \n-print(\n+raise ValueError \n %22fail: cliente j\n@@ -1046,33 +1046,32 @@\n  esta no cinema%22\n-)\n %0A        self.se\n@@ -1140,24 +1140,16 @@\n %0A       \n- index =\n  self.__\n@@ -1164,175 +1164,8 @@\n (id)\n-%0A        print(%22fail: cliente nao esta no cinema%22)%0A        if index == -1:%0A            print(%22fail: clite n%C3%A3o esta no cinema%22)%0A        return%0A    self.seats%5Bid%5D = None\n %0A%0A  \n@@ -1696,31 +1696,48 @@\n     \n-capacity = int(args%5B1%5D)\n+id = args%5B1%5D%0A            phone = args%5B2%5D\n %0A   \n@@ -1762,24 +1762,25 @@\n Theater(\n-capacity\n+id, phone\n )%0A      \n",
+            "lines": "70"
+        },
+        {
+            "label": "2025-11-15_22-12-36",
+            "content": "@@ -1387,23 +1387,16 @@\n l(self, \n-client_\n id: str)\n@@ -1429,23 +1429,16 @@\n earch__(\n-client_\n id)%0A    \n@@ -1589,23 +1589,16 @@\n f.seats%5B\n-client_\n id%5D = No\n@@ -2233,103 +2233,8 @@\n e%22:%0A\n-            client_id = args%5B1%5D%0A            id = int(args%5B2%5D)%0A            phone = int(args%5B3%5D)%0A\n     \n@@ -2296,40 +2296,8 @@\n l%22:%0A\n-            client_id = args%5B1%5D%0A\n     \n@@ -2322,19 +2322,9 @@\n cel(\n-client_id)%0A\n+)\n %0A%0Ama\n",
+            "lines": "80"
+        },
+        {
+            "label": "2025-11-15_22-17-23",
+            "content": "@@ -1907,20 +1907,16 @@\n Theater(\n-None\n )%0A    wh\n",
+            "lines": "85"
+        },
+        {
+            "label": "2025-11-15_22-18-06",
+            "content": "@@ -1704,21 +1704,24 @@\n         \n-seats\n+capacity\n _str = %22\n@@ -1788,23 +1788,75 @@\n elf.\n-seats)%0A        \n+capacity)%0A        seats_str = %22, %22.join(str(i) for i in self.seats)\n %0A   \n",
+            "lines": "85"
+        },
+        {
+            "label": "2025-11-15_22-20-19",
+            "content": "@@ -1852,16 +1852,20 @@\n Theater(\n+None\n )%0A    wh\n@@ -2243,21 +2243,18 @@\n         \n-phone\n+id\n  = int(a\n@@ -2273,21 +2273,21 @@\n         \n-index\n+phone\n  = int(a\n@@ -2325,31 +2325,8 @@\n rve(\n-client_id, phone, index\n )%0A  \n",
+            "lines": "85"
+        },
+        {
+            "label": "2025-11-15_22-24-11",
+            "content": "@@ -708,41 +708,27 @@\n def \n-reserve(self, id: str, phone: int\n+__verifyIdex__(self\n , in\n@@ -985,17 +985,20 @@\n arch__(i\n-d\n+ndex\n ) != -1:\n@@ -1051,16 +1051,284 @@\n rvado%22)%0A\n+            %0A    def reserve(self, id: str, phone: int, index: int):%0A        if self.seats%5Bindex%5D != None:%0A            print(%22fail: cadeira ja esta ocupada%22)%0A            return%0A        if self.__search__(id) != -1:%0A            print(%22fail: cliente ja esta no cinema%22)%0A\n         \n",
+            "lines": "85"
+        },
+        {
+            "label": "2025-11-15_22-30-13",
+            "content": "@@ -1316,36 +1316,32 @@\n inema%22)%0A        \n-    \n return%0A    self.\n@@ -1531,16 +1531,25 @@\n .seats)%0A\n+        %0A\n         \n@@ -1562,19 +1562,8 @@\n  f%22%5B\n-%7Bseats_str%7D\n %5D%22%0A%0A\n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_22-32-36",
+            "content": "@@ -1062,35 +1062,16 @@\n rvado%22)%0A\n-            return%0A\n         \n",
+            "lines": "77"
+        },
+        {
+            "label": "2025-11-15_22-34-31",
+            "content": "@@ -514,35 +514,32 @@\n h__(self, client\n-_id\n : str):%0A        \n@@ -642,19 +642,16 @@\n = client\n-_id\n :%0A      \n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_22-36-32",
+            "content": "@@ -620,25 +620,22 @@\n one and \n-c\n+C\n lient\n-_id\n .get_id(\n@@ -1352,36 +1352,32 @@\n          return%0A\n-    \n     self.seats%5Bi\n@@ -1371,29 +1371,33 @@\n  self.seats%5B\n-index\n+client_id\n %5D = None%0A%0A  \n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_22-39-16",
+            "content": "@@ -1533,16 +1533,23 @@\n else %22- \n+- - - -\n %22 for i \n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_22-41-27",
+            "content": "@@ -1492,16 +1492,17 @@\n _str = %22\n+,\n  %22.join(\n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_22-41-48",
+            "content": "@@ -1531,16 +1531,17 @@\n  else %22-\n+ \n %22 for i \n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_22-41-57",
+            "content": "@@ -1612,20 +1612,25 @@\n inema = \n-None\n+Theater()\n %0A    whi\n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_22-48-42",
+            "content": "@@ -1616,17 +1616,12 @@\n a = \n-Theater()\n+None\n %0A   \n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_22-48-55",
+            "content": "@@ -1218,16 +1218,66 @@\n ent_id)%0A\n+        print(%22fail: cliente nao esta no cinema%22)%0A\n         \n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-15_22-54-48",
+            "content": "@@ -554,17 +554,16 @@\n , client\n-_\n  in enum\n@@ -603,17 +603,16 @@\n f client\n-_\n  is not \n@@ -627,16 +627,18 @@\n  client_\n+id\n .get_id(\n",
+            "lines": "77"
+        },
+        {
+            "label": "2025-11-15_22-57-40",
+            "content": "class Client:\n    def __init__(self, id: str, phone: int):\n        self.__id = id\n        self.__phone = phone\n\n    def getPhone(self):\n        return self.__phone\n    def setPhone(self, phone: int):\n        self.__phone = phone\n    def getId(self):\n        return self.__id\n\n    def __str__(self):\n        return f\"{self.__id}:{self.__phone}\"\n        \nclass Theater:\n    def __init__(self, capacity: int = 0):\n        self.capacity = capacity\n        self.seats: list[Client] = [None] * capacity\n\n    def __search__(self, client_id: str):\n        for i, client_ in enumerate (self.seats):\n            if client_ is not None and client_.get_id() == client_id:\n                return i\n        return -1\n        \n    def reserve(self, id: str, phone: int, index: int):\n        if index < 0 or index >= self.capacity:\n            print(\"fail: assento inessistente\")\n            return\n        if self.seats[index] is not None:\n            print(\"fail: cadeira ocupada\")\n            return\n        if self.__search__(id) != -1:\n            print(\"fail: cliente ja esta reservado\")\n            return\n        self.seats[index] = Client(id, phone)\n\n    def cancel(self, client_id: str):\n        index = self.__search__(client_id)\n        if index == -1:\n            print(\"fail: clite n\u00e3o esta no cinema\")\n            return\n        self.seats[index] = None\n\n    def getSeats(self):\n        return self.seats\n\n    def __str__(self):\n        seats_str = \" \".join(str(i) if i is not None else \"-\" for i in self.seats)\n        return f\"[{seats_str}]\"\n\ndef main():\n    cinema = Theater()\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(cinema)\n        elif args[0] == \"init\":\n            capacity = int(args[1])\n            cinema = Theater(capacity)\n        elif args[0] == \"reserve\":\n            client_id = args[1]\n            phone = int(args[2])\n            index = int(args[3])\n            cinema.reserve(client_id, phone, index)\n        elif args[0] == \"cancel\":\n            client_id = args[1]\n            cinema.cancel(client_id)\n\n\nmain()",
+            "lines": "77"
         }
     ]
 }

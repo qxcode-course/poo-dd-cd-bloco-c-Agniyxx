@@ -12,39 +12,39 @@ class Market:
     def __init__(self, num_counters: int):
         self.counters: Person | None = [] 
         for _ in range(num_counters):
-            self.counters = None
-        self.waiting: Person |None = []
+            self.counters.append(None)
+        self.waiting: list[Person]= []
     
     def __str__(self):
-        counters_str = ", ".join(str(i) if i is None else "vazio" for i in self.counters)
+        counters_str = ", ".join(str(i) if i is not None else "-----" for i in self.counters)
         waiting_str = ", ".join(str(i) for i in self.waiting)
-        return f"Caixas: [{counters_str}]\Espera: [{waiting_str}]"
+        return f"Caixas: [{counters_str}]\nEspera: [{waiting_str}]"
     
     def arrive(self, person: Person):
-        self.counters.append(self.waiting)
+        self.waiting.append(person)
 
     def call(self, index: int):
-        if self.counters is None:
-            print("fail: niguem no caixa")
+        if index < 0 or index >= len(self.counters):
+            print("fail: caixa inexistente")
             return
-        if self.waiting is None:
-            print("fail: sem cliente")
+        if self.counters[index] is not None:
+            print("fail: caixa {index} ocupado")
             return
-        else:
-            print("fail: caixa ocupado")
+        if not self.waiting:
+            print("fail: sem cliente na fila de espera")
+            return
+        client = self.waiting.pop(0)
+        self.counters[index] = client
 
     def finish(self, index: int):
         if index < 0 or index >= len(self.counters):
             print("fail: caixa inexistente")
             return
-        if self.counters[index] is not None:
-            print("fail: caixa vazio")
+        person_leave = self.counters[index]
+        if person_leave is None:
+            print("fail: caixa vazuo")
             return
-        if not self.waiting:
-            print("fail: sem clientes na fila de espera")
-        client = self.waiting.pop(0)
-        self.counters[index] = client
-        print(f"ok: {client.get_name()} foi para o caixa {index}")
+        self.counters[index] = None
 
 def main():
     mercado = Market(0)
@@ -58,11 +58,19 @@ def main():
         if args[0] == "show":
             print(mercado)
         if args[0] == "init":
-            counters = args[1]
-            waiting = args[2]
-            mercado = Market(counters, waiting)
+            num_counters = int(args[1])
+            mercado = Market(num_counters)
+        if args[0] == "arrive":
+            name = args[1]
+            mercado.arrive(Person(name))
+        if args[0] == "call":
+            index = args[1]
+            mercado.call(index)
+        elif args[0] == "finish":
+            index = args[1]
+            mercado.finish(index)
             
 main()
 
-#.append() cria  a lista 
+#
 #join contrariio do split 

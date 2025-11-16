@@ -12,15 +12,16 @@ sources:
   type: clone
   branch: master
   cache_path: C:\Users\User\poo-Agniyxx\poo-dd-cd-bloco-c-Agniyxx\myrep\.tko\cache\poo\Readme.md
-  cache_timestamp: '2025-11-15 13:58:51'
+  cache_timestamp: '2025-11-15 20:00:11'
   filters:
   - listas
 expanded:
 - poo@campanha-principal
 - poo@bloco_c-listas
 tasks:
+  poo@budega: '{rate:20}'
   poo@pula-pula: '{rate:20}'
-  poo@cinema: '{rate:11}'
+  poo@cinema: '{rate:33}'
 flags:
   quests: 0
   tracks: 0
@@ -28,4 +29,4 @@ flags:
   graph: 0
   xray: 0
 lang: py
-selected: poo@junkfood
+selected: poo@cinema

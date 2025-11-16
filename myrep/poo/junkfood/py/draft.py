@@ -16,7 +16,7 @@ class Slot:
         return f"{self.__nome}:{self.__qtd}:{self.__preço}:"
     
 class Machine:
-    def __init__(self, slot: Slot): #cada espiral é um array
+    def __init__(self, slot: Slot): #cada espiral é um array?
         self.slot = slot
         
   
