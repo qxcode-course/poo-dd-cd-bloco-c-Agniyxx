@@ -57,15 +57,15 @@ def main():
 
         if args[0] == "end":
             break
-        if args[0] == "show":
+        elif args[0] == "show":
             print(mercado)
-        if args[0] == "init":
+        elif args[0] == "init":
             num_counters = int(args[1])
             mercado = Market(num_counters)
-        if args[0] == "arrive":
+        elif args[0] == "arrive":
             name = args[1]
             mercado.arrive(Person(name))
-        if args[0] == "call":
+        elif args[0] == "call":
             index = args[1]
             mercado.call(index)
         elif args[0] == "finish":

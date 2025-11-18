@@ -57,7 +57,6 @@ class Trampoline:
         if found:
             self.waiting = temp_list  
             heapq.heapify(self.waiting)
-            print("ok")
             return     
         print(f"fail: {name} não encontrado")
     

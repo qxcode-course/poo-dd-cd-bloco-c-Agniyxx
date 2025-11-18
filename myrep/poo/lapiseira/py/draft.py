@@ -18,14 +18,17 @@ class Grafite:
         return "{self.__dureza}:{self.__calibre}:{self.__tamanho}mm"
 
 class Lapiseira:
-    def __init__(self, calibre: float = 0):
+    gastos = {"HB": 1, "2B": 2, "4B": 4, "6B": 6}
+    tamanho_min = 10
+    def __init__(self, calibre: float = 0.0):
         self.calibre = calibre
-        self.tambor: list[int] = None
-        self.bico = []
+        self.tambor: list[Grafite] = []
+        self.bico: Grafite | None = None
 
     def inserir(self, grafite: Grafite):
-        if self.get_grafite() != self.calibre():
+        if grafite.get_calibre() != self.calibre:
             print("fail: calibre incompativel")
+            return
         self.tambor.append(grafite)
 
     def puxar(self):
@@ -45,21 +48,8 @@ class Lapiseira:
     def escrever_folha(self):
         if self.grafite is None:
             print("fail: o bico está vazio")
-            return 0
-        if self.grafite == "HB":
-            return 1
-        if self.grafite == "2B":
-            return 2
-        if self.grafite == "4B":
-            return 4
-        if self.grafite == "6B":
-            return 6
-    
-        if self.bico.get_tamannho() <= 10:
-            print("grafite insuficiente, retire o grafite")
-        else:
-            print("fail: grafite insuficiente, o texto ficou incompleto")
-            
+        
+        
     def pull(self): 
         if self.bico is not None:
             return False
