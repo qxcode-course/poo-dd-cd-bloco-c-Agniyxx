@@ -12,7 +12,7 @@ sources:
   type: clone
   branch: master
   cache_path: C:\Users\User\poo-Agniyxx\poo-dd-cd-bloco-c-Agniyxx\myrep\.tko\cache\poo\Readme.md
-  cache_timestamp: '2025-11-18 15:45:32'
+  cache_timestamp: '2025-11-19 16:42:18'
   filters:
   - listas
 expanded:
@@ -20,9 +20,11 @@ expanded:
 - poo@bloco_c-listas
 tasks:
   poo@array: '{rate:100, other:sim, alone:9, study:200}'
-  poo@budega: '{rate:20}'
-  poo@pula-pula: '{rate:20}'
-  poo@cinema: '{rate:100, guide:sim, alone:9, study:400}'
+  poo@budega: '{rate:100, iagen:sim_pra_pesquisar_alguns_comandos_tipo_o_len, alone:10,
+    study:600}'
+  poo@lapiseira: '{rate:21}'
+  poo@pula-pula: '{rate:40}'
+  poo@cinema: '{rate:100, guide:sim, other:sim, alone:9, study:400}'
 flags:
   quests: 1
   tracks: 0
@@ -30,4 +32,4 @@ flags:
   graph: 0
   xray: 0
 lang: py
-selected: poo@budega
+selected: poo@lapiseira

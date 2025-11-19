@@ -14,7 +14,7 @@ class Kid:
         return f"{self.__nome}:{self.__idade}"
     
     def __lt__(self, other):
-        return -self.__idade > -other.__idade
+        return self.__idade > -other.__idade
 
 class Trampoline: 
     def __init__(self, counter: int = 0):
@@ -58,10 +58,12 @@ class Trampoline:
             self.waiting = temp_list  
             heapq.heapify(self.waiting)
             return     
-        print(f"fail: {name} não encontrado")
+        print(f"fail: {name} não esta no pula-pula")
+        heapq.heappush(self.waiting, temp_list)
     
     def __str__(self):
-        waiting_str = ", ".join(str(kid) for kid in self.waiting)
+        waiting_sorted = sorted(self.waiting, reverse=True)
+        waiting_str = ", ".join(str(kid) for kid in waiting_sorted)
         playing_str = ", ".join(str(kid) for kid in self.playing)
         return f"[{waiting_str}] => [{playing_str}]"
 

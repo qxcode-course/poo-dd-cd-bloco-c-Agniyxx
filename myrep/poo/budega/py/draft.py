@@ -29,11 +29,11 @@ class Market:
         if index >= len(self.counters):
             print(" ")
             return
-        if self.counters[index] is not None:
-            print("fail: caixa {index} ocupado")
+        if self.counters[index] != "-----":
+            print("fail: caixa ocupado")
             return
         if not self.waiting:
-            print("fail: sem cliente na fila de espera")
+            print("fail: sem clientes")
             return
         client = self.waiting.pop(0)
         self.counters[index] = client
@@ -43,8 +43,8 @@ class Market:
             print("fail: caixa inexistente")
             return
         person_leave = self.counters[index]
-        if person_leave is None:
-            print("fail: caixa vazuo")
+        if person_leave == "-----":
+            print("fail: caixa vazio")
             return
         self.counters[index] = None
 
@@ -66,10 +66,10 @@ def main():
             name = args[1]
             mercado.arrive(Person(name))
         elif args[0] == "call":
-            index = args[1]
+            index = int(args[1])
             mercado.call(index)
         elif args[0] == "finish":
-            index = args[1]
+            index = int(args[1])
             mercado.finish(index)
             
 main()
